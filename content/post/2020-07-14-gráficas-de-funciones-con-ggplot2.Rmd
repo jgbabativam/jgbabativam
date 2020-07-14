@@ -29,7 +29,7 @@ projects: []
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Cuando tuve la necesidad de graficar una función solía recurrir a programas como `MATLAB` o simplemente simulaba algunos datos y lo hacía en `R` de la siguiente manera
+Cuando tenía la necesidad de graficar una función solía recurrir a programas como `MATLAB` o simplemente simulaba algunos datos en `R` y lo hacía de la siguiente manera
 
 ```{r simula, echo=TRUE, message=FALSE, warning=FALSE}
 library(ggplot2)
@@ -41,7 +41,7 @@ g1 <- ggplot(df, aes(x)) +
 g1
 ```
 
-Recientemente, encontré que el paquete `ggplot2` permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera
+Recientemente, encontré que la versión `3.3.2` del paquete `ggplot2`, permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera
 ```{r, echo=TRUE}
 g2 <- g1 +
       geom_function(aes(color = "teórica"), fun = dnorm)
