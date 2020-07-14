@@ -1,8 +1,7 @@
 ---
 authors:
 - admin
-bio: Mi investigación se basa en algoritmos de aprendizaje automático aplicados en técnicas de estadística multivariante. 
-  matter.
+bio: Mi investigación está orientada al uso de algoritmos de aprendizaje automático aplicados a técnicas de estadística multivariante. 
 education:
   courses:
   - course: PhD(c) in Statistics

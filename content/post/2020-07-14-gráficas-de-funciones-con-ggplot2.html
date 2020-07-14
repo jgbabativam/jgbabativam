@@ -1,0 +1,71 @@
+---
+title: "Graficando funciones con ggplot2"
+author: "Giovany Babativa"
+tags: ["R", "plot"]
+categories: ["R"]
+date: 2020-07-14T19:18:43+02:00
+lastmod: 2020-07-14T19:18:43+02:00
+featured: false
+draft: true
+
+# Featured image
+# To use, add an image named `featured.jpg/png` to your page's folder.
+# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
+image: 
+  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/eBbRSsV4JqU)'
+  focal_point: ""
+  placement: 2
+  preview_only: true
+
+# Projects (optional).
+#   Associate this post with one or more of your projects.
+#   Simply enter your project's folder or file name without extension.
+#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
+#   Otherwise, set `projects = []`.
+projects: []
+---
+
+
+
+<p>Cuando tuve la necesidad de graficar una función solía recurrir a programas como <code>MATLAB</code> o simplemente simulaba algunos datos y lo hacía en <code>R</code> de la siguiente manera</p>
+<pre class="r"><code>library(ggplot2)
+
+df &lt;- data.frame( x = rnorm(1000))
+
+g1 &lt;- ggplot(df, aes(x)) +
+  geom_density(aes(color = &quot;estimada&quot;), key_glyph = &quot;path&quot;) + theme_classic()
+g1</code></pre>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/simula-1.png" width="672" /></p>
+<p>Recientemente, encontré que el paquete <code>ggplot2</code> permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
+<pre class="r"><code>g2 &lt;- g1 +
+      geom_function(aes(color = &quot;teórica&quot;), fun = dnorm)
+g2</code></pre>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para <code>x</code> en el rango de 0 a 30 para realizar la gráfica. Adicionalmente, se debe agregar una tilde (<code>~</code>) después del igual (<code>=</code>) y la variable debe estar antecedida por un punto <code>.x</code>.</p>
+<pre class="r"><code>ggplot() +
+  xlim(0, 30) +
+  geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()</code></pre>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Finalmente, usted puede escribir la sintaxis de cualquier ecuación, si lo prefiere puede usar directamente la función de densidad, así:</p>
+<pre class="r"><code>ggplot() +
+   xlim(-3, 3) +
+   geom_function(
+     aes(color = &quot;Normal&quot;),
+     fun =~ 1/sqrt(2 * pi) * exp(-.x^2/2)
+     ) +
+   geom_function(
+     aes(color = &quot;Laplace&quot;),
+     fun =~ 1/2 * exp(-abs(.x))
+   ) + theme_classic() +
+  ylab(&quot;f(x)&quot;) + theme(legend.title = element_blank())</code></pre>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad</p>
+<pre class="r"><code>ggplot() +
+  xlim(-10, 10) +
+  geom_function(aes(color = &quot;lineal&quot;),
+    fun =~ 3*.x + 1 
+    ) +
+  geom_function(aes(color = &quot;cuadrática&quot;),
+    fun =~ 3*.x^2 + .x + 1             
+    ) + ylab(&quot;f(x)&quot;) + theme_classic()</code></pre>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
