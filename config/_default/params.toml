@@ -229,7 +229,7 @@ plugins_js  = []
 
   # Configuration of Disqus.
   [comments.disqus]
-    shortname = "giovanybabativa"  # Paste the shortname from your Disqus dashboard.
+    shortname = "https-jgbabativam-netlify-app"  # Paste the shortname from your Disqus dashboard.
     show_count = true  # Show comment count in page header? (true/false)
 
   # Configuration of Commento.
