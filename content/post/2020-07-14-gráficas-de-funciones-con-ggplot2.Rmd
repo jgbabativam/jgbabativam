@@ -40,14 +40,14 @@ g1 <- ggplot(df, aes(x)) +
 g1
 ```
 
-Recientemente, encontré que la versión `3.3.2` del paquete `ggplot2`, permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera
+Hace poco encontré que la versión `3.3.2` del paquete `ggplot2` permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera
 ```{r, echo=TRUE}
 g2 <- g1 +
       geom_function(aes(color = "teórica"), fun = dnorm)
 g2
 ```
 
-Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para `x` en el rango de 0 a 30 para realizar la gráfica. Adicionalmente, se debe agregar una tilde (`~`) después del igual (`=`) y la variable debe estar antecedida por un punto `.x`.
+Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para `x` en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (`~`) después del igual (`=`) y la variable debe estar antecedida por un punto `.x`.
 
 ```{r}
 ggplot() +
@@ -55,7 +55,7 @@ ggplot() +
   geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()
 ```
 
-Finalmente, usted puede escribir la sintaxis de cualquier ecuación, si lo prefiere puede usar directamente la función de densidad, así:
+Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:
 
 ```{r}
 ggplot() +

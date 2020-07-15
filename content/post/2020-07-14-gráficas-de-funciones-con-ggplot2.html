@@ -35,17 +35,17 @@ g1 &lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &quot;estimada&quot;), key_glyph = &quot;path&quot;) + theme_classic()
 g1</code></pre>
 <p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/simula-1.png" width="672" /></p>
-<p>Recientemente, encontré que la versión <code>3.3.2</code> del paquete <code>ggplot2</code>, permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
+<p>Hace poco encontré que la versión <code>3.3.2</code> del paquete <code>ggplot2</code> permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
 <pre class="r"><code>g2 &lt;- g1 +
       geom_function(aes(color = &quot;teórica&quot;), fun = dnorm)
 g2</code></pre>
 <p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para <code>x</code> en el rango de 0 a 30 para realizar la gráfica. Adicionalmente, se debe agregar una tilde (<code>~</code>) después del igual (<code>=</code>) y la variable debe estar antecedida por un punto <code>.x</code>.</p>
+<p>Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para <code>x</code> en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (<code>~</code>) después del igual (<code>=</code>) y la variable debe estar antecedida por un punto <code>.x</code>.</p>
 <pre class="r"><code>ggplot() +
   xlim(0, 30) +
   geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()</code></pre>
 <p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<p>Finalmente, usted puede escribir la sintaxis de cualquier ecuación, si lo prefiere puede usar directamente la función de densidad, así:</p>
+<p>Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:</p>
 <pre class="r"><code>ggplot() +
    xlim(-3, 3) +
    geom_function(
