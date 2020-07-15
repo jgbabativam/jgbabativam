@@ -84,7 +84,7 @@
       <description>
 
 
-&lt;p&gt;Cuando tuve la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos y lo hacía en &lt;code&gt;R&lt;/code&gt; de la siguiente manera&lt;/p&gt;
+&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 
 df &amp;lt;- data.frame( x = rnorm(1000))
@@ -93,7 +93,7 @@ g1 &amp;lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &amp;quot;estimada&amp;quot;), key_glyph = &amp;quot;path&amp;quot;) + theme_classic()
 g1&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/simula-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Recientemente, encontré que el paquete &lt;code&gt;ggplot2&lt;/code&gt; permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera&lt;/p&gt;
+&lt;p&gt;Recientemente, encontré que la versión &lt;code&gt;3.3.2&lt;/code&gt; del paquete &lt;code&gt;ggplot2&lt;/code&gt;, permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g2 &amp;lt;- g1 +
       geom_function(aes(color = &amp;quot;teórica&amp;quot;), fun = dnorm)
 g2&lt;/code&gt;&lt;/pre&gt;

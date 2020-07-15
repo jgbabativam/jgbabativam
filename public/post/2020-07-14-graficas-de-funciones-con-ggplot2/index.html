@@ -27,7 +27,7 @@
   
     
   
-  <meta name="description" content="Cuando tuve la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos y lo hacía en R de la siguiente manera
+  <meta name="description" content="Cuando tenía la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos en R y lo hacía de la siguiente manera
 library(ggplot2)df &lt;- data.">
 
   
@@ -240,7 +240,7 @@ library(ggplot2)df &lt;- data.">
   <meta property="og:site_name" content="Giovany Babativa">
   <meta property="og:url" content="/post/2020-07-14-graficas-de-funciones-con-ggplot2/">
   <meta property="og:title" content="Graficando funciones con ggplot2 | Giovany Babativa">
-  <meta property="og:description" content="Cuando tuve la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos y lo hacía en R de la siguiente manera
+  <meta property="og:description" content="Cuando tenía la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos en R y lo hacía de la siguiente manera
 library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
   <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="es">
   
@@ -291,7 +291,7 @@ library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Cuando tuve la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos y lo hacía en R de la siguiente manera\nlibrary(ggplot2)\rdf \u0026lt;- data."
+  "description": "Cuando tenía la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos en R y lo hacía de la siguiente manera\nlibrary(ggplot2)\rdf \u0026lt;- data."
 }
 </script>
 
@@ -685,7 +685,7 @@ library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon
       
 
 
-<p>Cuando tuve la necesidad de graficar una función solía recurrir a programas como <code>MATLAB</code> o simplemente simulaba algunos datos y lo hacía en <code>R</code> de la siguiente manera</p>
+<p>Cuando tenía la necesidad de graficar una función solía recurrir a programas como <code>MATLAB</code> o simplemente simulaba algunos datos en <code>R</code> y lo hacía de la siguiente manera</p>
 <pre class="r"><code>library(ggplot2)
 
 df &lt;- data.frame( x = rnorm(1000))
@@ -694,7 +694,7 @@ g1 &lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &quot;estimada&quot;), key_glyph = &quot;path&quot;) + theme_classic()
 g1</code></pre>
 <p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/simula-1.png" width="672" /></p>
-<p>Recientemente, encontré que el paquete <code>ggplot2</code> permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
+<p>Recientemente, encontré que la versión <code>3.3.2</code> del paquete <code>ggplot2</code>, permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
 <pre class="r"><code>g2 &lt;- g1 +
       geom_function(aes(color = &quot;teórica&quot;), fun = dnorm)
 g2</code></pre>
