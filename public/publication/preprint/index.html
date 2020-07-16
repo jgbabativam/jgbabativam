@@ -209,6 +209,44 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727802-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-172727802-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -469,7 +507,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Conferencias</span></a>
+          <a class="nav-link " href="/#talks"><span>Charlas</span></a>
         </li>
 
         
@@ -1101,7 +1139,7 @@
       return;
     }
     var d = document, s = d.createElement('script'); s.async = true;
-    s.src = 'https://' + "giovanybabativa" + '.disqus.com/embed.js';
+    s.src = 'https://' + "https-jgbabativam-netlify-app." + '.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
@@ -1229,7 +1267,7 @@
 
     
     
-    <script id="dsq-count-scr" src="https://giovanybabativa.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="https://https-jgbabativam-netlify-app..disqus.com/count.js" async></script>
     
 
     

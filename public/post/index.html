@@ -209,6 +209,44 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172727802-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-172727802-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
   
 
 
@@ -422,7 +460,7 @@
         
 
         <li class="nav-item">
-          <a class="nav-link " href="/#projects"><span>Conferencias</span></a>
+          <a class="nav-link " href="/#talks"><span>Charlas</span></a>
         </li>
 
         
@@ -701,6 +739,96 @@ library(ggplot2)df &lt;- data.
 
     
   
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<div class="media stream-item">
+  <div class="media-body">
+
+    <h3 class="article-title mb-0 mt-0">
+      <a href="/post/googlebd8b7a5376b9c311/" ></a>
+    </h3>
+
+    
+    <a href="/post/googlebd8b7a5376b9c311/" class="summary-link">
+      <div class="article-style">
+        google-site-verification: googlebd8b7a5376b9c311.
+      </div>
+    </a>
+    
+
+    <div class="stream-meta article-metadata">
+
+      
+
+      
+        
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jan 1, 0001
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    1 min de lectura
+  </span>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/post/googlebd8b7a5376b9c311/#disqus_thread"></a>
+  
+
+  
+  
+
+</div>
+
+      
+    </div>
+
+    
+
+  </div>
+  <div class="ml-3">
+    
+    
+  </div>
+</div>
+
+    
+  
 
   
 
@@ -795,7 +923,7 @@ library(ggplot2)df &lt;- data.
 
     
     
-    <script id="dsq-count-scr" src="https://giovanybabativa.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="https://https-jgbabativam-netlify-app..disqus.com/count.js" async></script>
     
 
     
