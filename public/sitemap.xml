@@ -29,37 +29,42 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/ggplot/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/ggplot/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/2020-07-14-graficas-de-funciones-con-ggplot2/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tag/plot/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tag/r/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/category/r/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2020-07-14T19:18:43+02:00</lastmod>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>

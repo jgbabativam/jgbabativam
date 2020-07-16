@@ -1,10 +1,15 @@
 ---
 title: "Graficando funciones con ggplot2"
 author: "Giovany Babativa"
-tags: ["R", "plot"]
-categories: ["R"]
-date: 2020-07-14T19:18:43+02:00
-lastmod: 2020-07-14T19:18:43+02:00
+tags: 
+    - R
+    - ggplot
+categories: 
+    - R
+    - ggplot
+subtitle: ''
+summary: "Aprenda una forma simple de graficar cualquier función matemática con el paquete ggplot2"
+date: '2020-07-14'
 featured: false
 draft: false
 
