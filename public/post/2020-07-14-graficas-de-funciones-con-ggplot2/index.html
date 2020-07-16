@@ -270,10 +270,9 @@ library(ggplot2)df &lt;- data.">
   
   
     
-    
   
   
-  <meta property="twitter:card" content="summary">
+  <meta property="twitter:card" content="summary_large_image">
   
   <meta property="twitter:site" content="@jgbabativam">
   <meta property="twitter:creator" content="@jgbabativam">
@@ -282,8 +281,8 @@ library(ggplot2)df &lt;- data.">
   <meta property="og:url" content="/post/2020-07-14-graficas-de-funciones-con-ggplot2/">
   <meta property="og:title" content="Graficando funciones con ggplot2 | Giovany Babativa">
   <meta property="og:description" content="Cuando tenía la necesidad de graficar una función solía recurrir a programas como MATLAB o simplemente simulaba algunos datos en R y lo hacía de la siguiente manera
-library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png">
-  <meta property="twitter:image" content="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png"><meta property="og:locale" content="es">
+library(ggplot2)df &lt;- data."><meta property="og:image" content="/post/2020-07-14-graficas-de-funciones-con-ggplot2/featured.jpg">
+  <meta property="twitter:image" content="/post/2020-07-14-graficas-de-funciones-con-ggplot2/featured.jpg"><meta property="og:locale" content="es">
   
     
       <meta property="article:published_time" content="2020-07-14T19:18:43&#43;02:00">
@@ -315,6 +314,10 @@ library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon
     "@id": "/post/2020-07-14-graficas-de-funciones-con-ggplot2/"
   },
   "headline": "Graficando funciones con ggplot2",
+  
+  "image": [
+    "/post/2020-07-14-graficas-de-funciones-con-ggplot2/featured.jpg"
+  ],
   
   "datePublished": "2020-07-14T19:18:43+02:00",
   "dateModified": "2020-07-14T19:18:43+02:00",
@@ -671,18 +674,26 @@ library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon
 
 
 
-  
+
+
+
+
+
+
+
 
   
   
+    
   
+
+
 <div class="article-container pt-3">
   <h1>Graficando funciones con ggplot2</h1>
 
   
 
   
-    
 
 
 <div class="article-metadata">
@@ -725,22 +736,29 @@ library(ggplot2)df &lt;- data."><meta property="og:image" content="/images/icon
 
 </div>
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 480px;">
+  <div style="position: relative">
+    <img src="/post/2020-07-14-graficas-de-funciones-con-ggplot2/featured_hu45d1aec5d10700328b04137f8083e4b1_13191857_720x0_resize_q90_lanczos.jpg" alt="" class="featured-image">
+    <span class="article-header-caption"><a href="https://unsplash.com/photos/_RBcxo9AU-U">Photo by Robert Lukeman on Unsplash</a></span>
+  </div>
 </div>
 
 
@@ -759,17 +777,17 @@ df &lt;- data.frame( x = rnorm(1000))
 g1 &lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &quot;estimada&quot;), key_glyph = &quot;path&quot;) + theme_classic()
 g1</code></pre>
-<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/simula-1.png" width="672" /></p>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/simula-1.png" width="672" /></p>
 <p>Hace poco encontré que la versión <code>3.3.2</code> del paquete <code>ggplot2</code> permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
 <pre class="r"><code>g2 &lt;- g1 +
       geom_function(aes(color = &quot;teórica&quot;), fun = dnorm)
 g2</code></pre>
-<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para <code>x</code> en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (<code>~</code>) después del igual (<code>=</code>) y la variable debe estar antecedida por un punto <code>.x</code>.</p>
 <pre class="r"><code>ggplot() +
   xlim(0, 30) +
   geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()</code></pre>
-<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:</p>
 <pre class="r"><code>ggplot() +
    xlim(-3, 3) +
@@ -782,7 +800,7 @@ g2</code></pre>
      fun =~ 1/2 * exp(-abs(.x))
    ) + theme_classic() +
   ylab(&quot;f(x)&quot;) + theme(legend.title = element_blank())</code></pre>
-<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad</p>
 <pre class="r"><code>ggplot() +
   xlim(-10, 10) +
@@ -792,7 +810,7 @@ g2</code></pre>
   geom_function(aes(color = &quot;cuadrática&quot;),
     fun =~ 3*.x^2 + .x + 1             
     ) + ylab(&quot;f(x)&quot;) + theme_classic()</code></pre>
-<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 
     </div>
 
