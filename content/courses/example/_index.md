@@ -1,56 +1,33 @@
 ---
-date: "2018-09-09T00:00:00Z"
+date: "2020-07-17"
 draft: false
-lastmod: "2018-09-09T00:00:00Z"
-linktitle: An Example Course
+lastmod: "2020-07-17"
+linktitle: Mis cursos
 menu:
   example:
-    name: Overview
+    name: Estadística Multivariante
     weight: 1
-summary: Learn how to use Academic's docs layout for publishing online courses, software
-  documentation, and tutorials.
-title: Overview
+summary: Proyecto en desarrollo.
+title: Mis cursos
 toc: true
 type: docs
 weight: 1
 ---
 
-## Flexibility
+## Curso
 
-This feature can be used for publishing content such as:
+Actualmente estoy trabajando en los siguientes cursos (espero tenerlos próximamente):
 
-* **Online courses**
-* **Project or software documentation**
-* **Tutorials**
+* **Visualización de datos**
+* **Análisis multivariante para tablas de 3 vías**
+* **Marketing Analytics**
 
-The `courses` folder may be renamed. For example, we can rename it to `docs` for software/project documentation or `tutorials` for creating an online course.
+Los `cursos` incluiran los materiales de trabajo y los `códigos` de programación.
 
-## Delete tutorials
+## Software
 
-**To remove these pages, delete the `courses` folder and see below to delete the associated menu link.**
+En los `cursos` se implementan usando códigos en `R`, `Python` y herramientas como `Orange`, `KNIME` entre otras.
 
-## Update site menu
+## Actualización del sitio
 
-After renaming or deleting the `courses` folder, you may wish to update any `[[main]]` menu links to it by editing your menu configuration at `config/_default/menus.toml`.
-
-For example, if you delete this folder, you can remove the following from your menu configuration:
-
-```toml
-[[main]]
-  name = "Courses"
-  url = "courses/"
-  weight = 50
-```
-
-Or, if you are creating a software documentation site, you can rename the `courses` folder to `docs` and update the associated *Courses* menu configuration to:
-
-```toml
-[[main]]
-  name = "Docs"
-  url = "docs/"
-  weight = 50
-```
-
-## Update the docs menu
-
-If you use the *docs* layout, note that the name of the menu in the front matter should be in the form `[menu.X]` where `X` is the folder name. Hence, if you rename the `courses/example/` folder, you should also rename the menu definitions in the front matter of files within `courses/example/` from `[menu.example]` to `[menu.<NewFolderName>]`.
+Los materiales se estarán agregando a la página en la medida que se vayan terminando. 

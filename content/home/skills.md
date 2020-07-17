@@ -29,7 +29,7 @@ subtitle = ""
 [[feature]]
   icon = "chart-bar"
   icon_pack = "fas"
-  name = "Data visualization"
+  name = "Visualización de datos"
   description = "80%"
 
 # Uncomment to use emoji icons.

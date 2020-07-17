@@ -21,7 +21,7 @@ links:
   icon_pack: fab
   name: Follow
   url: https://twitter.com/jgbabativam
-location: Universidad de Cartagena
+location: Cartagena, Colombia
 math: true
 publishDate: "2020-07-06"
 slides: 
