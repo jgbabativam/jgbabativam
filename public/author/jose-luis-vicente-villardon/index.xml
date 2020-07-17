@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jose Luis Vicente-Villardón | Giovany Babativa</title>
+    <link>/author/jose-luis-vicente-villardon/</link>
+      <atom:link href="/author/jose-luis-vicente-villardon/index.xml" rel="self" type="application/rss+xml" />
+    <description>Jose Luis Vicente-Villardón</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><copyright>© 2020 Giovany Babativa-Márquez</copyright><lastBuildDate>Mon, 08 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Jose Luis Vicente-Villardón</title>
+      <link>/author/jose-luis-vicente-villardon/</link>
+    </image>
+    
+    <item>
+      <title>El impacto de la estadística para la toma de decisiones</title>
+      <link>/talk/2020-ciema/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/talk/2020-ciema/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Si quiere ver la presentación, haga clic sobre el botón de &lt;strong&gt;Diapositivas&lt;/strong&gt; que se encuentra en la parte de arriba.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Este evento fue organizado por el Centro de Investigación de Estadística Multivariante Aplicada (CIEMA) de la Universidad de Colima - México y estuvo dirigido a los estudiantes, investigadores, docentes y publico en general que estuviera interesado en conocer aplicaciones en temas relacionados con técnicas de estadística multivariante y métodos de visualización de datos. El foro fue transmitido por facebook live.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

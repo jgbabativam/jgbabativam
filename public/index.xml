@@ -55,28 +55,6 @@
     </item>
     
     <item>
-      <title>Example Talk</title>
-      <link>/talk/example/</link>
-      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
-      <guid>/talk/example/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Graficando funciones con ggplot2</title>
       <link>/post/2020-07-14-graficas-de-funciones-con-ggplot2/</link>
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
@@ -126,6 +104,34 @@ g2&lt;/code&gt;&lt;/pre&gt;
     fun =~ 3*.x^2 + .x + 1             
     ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Análisis de las comorbilidades de fallecidos por SARS-CoV-2</title>
+      <link>/talk/2020-ciema/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/talk/2020-ciema/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Si quiere ver la presentación, haga clic sobre el botón de &lt;strong&gt;Diapositivas&lt;/strong&gt; que se encuentra en la parte de arriba.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Este evento fue organizado por el Centro de Investigación de Estadística Multivariante Aplicada (CIEMA) de la Universidad de Colima - México y estuvo dirigido a los estudiantes, investigadores, docentes y publico en general que estuviera interesado en conocer aplicaciones en temas relacionados con técnicas de estadística multivariante y métodos de visualización de datos. El foro fue transmitido por facebook live, en el botón de arriba a partir de 1:40:50 se encuentra el video de la presentación.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>La Estadística: Métodos que generan valor en la toma decisiones</title>
+      <link>/talk/2020-cartagena/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      <guid>/talk/2020-cartagena/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Si quiere ver la presentación, haga clic sobre el botón de &lt;strong&gt;Diapositivas&lt;/strong&gt; que se encuentra en la parte de arriba.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Este evento fue organizado por la Facultad de Ciencias exactas y Naturales de la Universidad de Cartagena-Colombia, en el marco de sus 13 años. La conferencia estuvo dirigida a los estudiantes, investigadores y docentes de la universidad. Se habló sobre la contribución de las técnicas estadísticas usando algunos casos en los campos de la bioinformática, marketing, evaluación de políticas públicas y evaluación de la educación. El evento fue transmitido por facebook live, en el botón de arriba se encuentra el video de la presentación.&lt;/p&gt;
 </description>
     </item>
     

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>El impacto de la estadística para la toma de decisiones</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Giovany Babativa" />
+    <meta name="date" content="2020-06-08" />
+    <link href="libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# El impacto de la estadística para la toma de decisiones
+## Estudio de caso: SARS-CoV-2
+### Giovany Babativa
+### 2020-06-08
+
+---
+
+
+
+
+
+
+
+# Introducción
+
+La estadística es una ciencia que tiene impacto en la toma de decisiones para diferentes sectores&lt;sup&gt;1
+--
+
+- **Mediciones de audiencia**: diseño de muestra maestra - diarios de audiencia/people meters.
+
+--
+
+- **Sector Financiero**: modelos de riesgo, segmentación, prevención de fraude - `phishing`.
+
+--
+
+- **Marketing**: decisiones de publicidad y mercadeo - `Brand Equity`, `Satisfacción de clientes`...
+
+--
+
+- **Evaluación de políticas públicas**: continuidad, focalización o ampliación.
+
+--
+
+- **Evaluación de la educación**: Pruebas `PISA` muestreo `SISPPS`, calificación `TRI`, cambio de cuadernillo en pruebas de estado `Saber 11`.
+
+--
+
+- **Salud**: prevención de consumo SPA, modelos en epidemiología, test de nuevos fármacos. 
+
+.footnote[
+[1] Los campos son mucho más amplios que los mencionados acá.
+]
+
+---
+
+# Marketing
+
+Las decisiones que se toman en marketing son diversas
+&lt;img src="images/Marketing.png" width="80%" style="display: block; margin: auto;" /&gt;
+---
+# Evaluación de políticas públicas
+
+
+
+
+```r
+df %&gt;% 
+  ggplot(aes(x, y, color = as.factor(tratado)))+
+  geom_point() + geom_smooth( method = 'lm') + theme_bw() + theme(legend.position = "none")
+```
+--
+.pull-left[
+&lt;img src="figs/unnamed-chunk-4-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[ 
+
+Problema de regresión discontínua **Ser Pilo Paga**, la variable `\(x\)` representa el puntaje en la prueba `Saber 11` mientras que las variable `\(y\)` representa alguna variable de resultado.
+
+`$$y_i = \alpha +\beta_1 x_i +\beta_2T_i + \epsilon_i$$`
+$$H_0: \beta_2 = 0; H_a: \beta_2 &gt; 0 $$
+
+- Ancho de banda.
+
+- Medición de la línea de base.
+
+]
+---
+
+# Evaluación de políticas públicas
+
+Las investigaciones suelen ser de tipo experimental o cuasi-experimental, en estos casos se cuenta con un grupo control. _Programas como comedores comunitarios, familias en acción, vivienda gratuita, mejoramiento de barrios..._
+
+.pull-left[
+&lt;img src="images/difdif.png" width="100%" style="display: block; margin: auto;" /&gt;
+]
+--
+.pull-right[ 
+- El parámetro de interés es: 
+
+`$$\theta = (\mu_{T_2} - \mu_{C_2}) - (\mu_{T_1} - \mu_{C_1})$$`
+
+- La hipótesis nula es que el programa no genera ningún impacto.
+`$$H_0: \theta = 0$$`
+
+- La hipótesis nula es que existe un impacto del programa.
+
+`$$H_a: \theta &gt; 0$$`
+
+- El efecto mínimo esperado `\(\Delta &gt; 0\)` y la potencia mínima esperada, son los valores a considerar en el cálculo del tamaño de la muestra. 
+
+]
+
+---
+# Evaluación de la Educación
+
+Pruebas de estado **Saber 11**: un cambio de más de 50 años de historia
+
+.pull-left[
+&lt;img src="images/cuadernillo.png" width="70%" style="display: block; margin: auto;" /&gt;
+]
+--
+.pull-right[ 
+**Saber 11** calendario A: 
+- Un millón doscientos mil cuadernillos.
+- más de 80 formas diseñadas `BIB`.
+- Impresión `offset` por plancha y plegado.
+- Impresión `digital` + encuadernado.
+- 48 páginas por cuadernillo 55 millones de hojas, 2.000 impresiones por minuto.
+- Nombres y apellidos en todas las páginas.
+- Tiempos de impresión y distribución de 20 días.
+- Algoritmo basado en principios de `big data` - QR.
+]
+---
+
+# Salud: SARS-CoV-2
+El caricaturista [Toby Morris](https://twitter.com/XTOTL) realizó la siguiente ilustración que muestra la forma como evoluciona la pandemia
+
+&lt;img src="images/curve.gif" width="70%" style="display: block; margin: auto;" /&gt;
+---
+
+# Tasa de reproducción
+La tasa de reproducción `\(R_0\)`, se estima entre 2.5 y 3.5 para el SARS-CoV-2 [Spinoff](https://thespinoff.co.nz/) 
+
+&lt;img src="images/R0.gif" width="70%" style="display: block; margin: auto;" /&gt;
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# Casos confirmados en Colombia
+Gráfica acumulada y en escala logarítmica
+
+.pull-left[
+&lt;img src="images/CasosNal.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
+--
+.pull-right[
+&lt;img src="images/logCasosNal.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
+---
+background-image: url(images/comparapaises.png)
+background-size: contain
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# SARS-CoV-2 - últimos 30 días
+
+&lt;img src="images/dual.png" width="78%" style="display: block; margin: auto;" /&gt;
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# SARS-CoV-2 - últimos 30 días
+
+&lt;img src="images/DobleBrasil.png" width="78%" style="display: block; margin: auto;" /&gt;
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/3f/Bandera_de_M%C3%A9xico_Civil_2.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# SARS-CoV-2 - últimos 30 días
+
+&lt;img src="images/DobleMexico.png" width="78%" style="display: block; margin: auto;" /&gt;
+---
+background-image: url(images/TasaDptal.gif)
+background-size: contain
+---
+
+# Biplot Logístico: análisis de comorbilidades.
+
+`\(\mathbf{X}_{n \times p}\)` donde `\(x_{ij} \sim Ber(\pi(\theta_{ij}))\)` y `\(\pi(\cdot)\)` es la inversa de la función de enlace, que corresponde a `\(\pi(\theta_{ij}) = \left\{1+exp(-\theta_{ij})\right\}^{-1}\)`.
+
+`$$\textit{L} (\mathbf{X}; \Theta) = \prod_{i=1}^n\prod_{j=1}^p \pi(\theta_{ij})^{x_{ij}}\left( 1 - \pi(\theta_{ij})\right)^{1-x_{ij}}$$`
+
+--
+La función de pérdida es
+`$$\mathcal{L}\left(\mathbf{\Theta}\right) = - log \textit{L} (\mathbf{X}; \Theta) = -\sum_{i=1}^n\sum_{j=1}^p \left[ x_{ij} log(\pi(\theta_{ij})) + (1-x_{ij})log(1-\pi(\theta_{ij}))\right].$$`
+
+Así el log-odds de `\(\pi(\theta_{ij})\)` es `\(\theta_{ij}\)` con `\(\theta_{ij}=log\left\{\pi(\theta_{ij})/(1-\pi(\theta_{ij}))\right\}\)`, que corresponde al parámetro natural de una distribución Bernoulli expresada en su forma de familia exponencial. La matriz canónica de parámetros naturales es `\(\mathbf{\Theta}=\left(\mathbf{\theta}_1, \ldots, \mathbf{\theta}_n \right)^T\)`  se representa como
+
+`$$\mathbf{\Theta} = logit\left(\mathbf{\Pi}\right) = \mathbf{1}_n\mu^T + \mathbf{AB}^T.$$`
+
+---
+
+# Función de pérdida
+
+`$$\mathcal{L} = -\sum_{i=1}^n\sum_{j=1}^p \left[ x_{ij} log(\pi(\theta_{ij})) + (1-x_{ij})log(1-\pi(\theta_{ij}))\right] =\sum_{i=1}^n\sum_{j=1}^p f(\theta_{ij}).$$`
+--
+Para una función de enlace logit, `\(\pi(\theta_{ij})=(1-\exp(-\theta_{ij}))^{-1}\)`
+
+`$$\nabla f(\theta_{ij})  = \pi(\theta_{ij})-x_{ij}.$$`
+`$$\nabla^2 f(\theta_{ij}) = \pi(\theta_{ij})(1 - \pi(\theta_{ij})).$$`
+--
+Expresando el gradiente en términos matriciales
+`$$\nabla \mathcal{L} =  \mathbf{\Pi}  - \mathbf{X}.$$`
+.footnote[[*] algoritmos basados en el gradiente conjugado y métodos de cuasi-newton han sido implementados en el paquete _BiplotML_.]
+
+---
+
+# Algoritmo BFGS
+
+Se considera un modelo cuadrático de la función de pérdida en la iteración `\(k\)`
+`$$m_k(d) = \mathcal{L}_k + \nabla \mathcal{L}_k^T d + \frac{1}{2} d^T B_k d$$`
+
+--
+
+`\(B_k\)` es una matriz definida positiva que se actualiza en cada iteración. La dirección de actualización en el paso `\(k\)` es
+`$$\mathbf{\Theta}_{k+1} = \mathbf{\Theta}_k + \alpha_k d_k,$$`
+donde `\(d_k =  -B_k^{-1} \nabla  \mathcal{L}_k\)` y `\(\alpha_k\)` la velocidad de aprendizaje que satisface las _condiciones de Wolfe_.
+
+--
+
+Usando la formula de Broyden, Fletcher, Goldfarb y Shanno (BFGS), la actualización para el biplot logístico binario es
+
+`$$B_{k+1} = B_{k} - \frac{B_k s_k s_k^T B_k}{s_k^T B_k s_k} + \frac{\Delta_k \Delta_k^T}{\Delta_k^T s_k},$$`
+con `\(\Delta_k = \nabla \mathcal{L}_{k+1} - \nabla \mathcal{L}_{k}\)` y `\(s_k = \mathbf{\Theta}_{k+1} - \mathbf{\Theta}_{k} = \alpha_k d_k\)`.
+
+---
+background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg)
+background-size: 100px
+background-position: 90% 8%
+
+# Análisis de comorbilidades 
+
+
+```r
+devtools::install_github("jgbabativam/BiplotML")
+library(BiplotML)
+bip.com &lt;- BiplotML::bootBLB(x = dico, method = "BFGS")
+```
+
+&lt;img src="images/LogBip.png" width="40%" style="display: block; margin: auto;" /&gt;
+---
+background-image: url(images/LogBip.png)
+background-size: contain
+---
+background-image: url(images/LogBipSex.png)
+background-size: contain
+---
+background-image: url(images/LogBipTedad.png)
+background-size: contain
+---
+background-image: url(images/LogBipXDpto.png)
+background-size: contain
+
+---
+# Modelos
+
+
+.pull-left[
+*Modelos determinísticos*, Kermack \&amp; McKendrick 1927&lt;sup&gt;1  
+
+- SIR: Sanos, Infectados y Recuperados.
+- SEIR: Agrega el compartimiento de expuestos.
+- SEIRS: No supone inmunidad
+&lt;img src="images/SEIR.png" width="90%" style="display: block; margin: auto;" /&gt;
+.footnote[
+[1] Imagen tomada de [data for science](https://medium.com/data-for-science)  .
+]
+]
+
+--
+
+.pull-right[ 
+*Modelos estocásticos*
+- [Institute for Health Metrics and Evaluation (IHME)](https://covid19.healthdata.org/mexico): propone un modelo con efectos mixtos no lineal que permite estimar la tasa de mortalidad, en la especificación del modelo se utiliza información sobre el distanciamiento social y covariables específicas sobre la ubicación.
+- [Imperial College](https://www.imperial.ac.uk/mrc-global-infectious-disease-analysis/covid-19/report-13-europe-npi-impact/): proponen un modelo jerárquico bayesiano que permite estimar el número “real” de infectados además de inferir el impacto de las intervenciones no farmacéuticas para 11 países a partir de intervalos de credibilidad. 
+]
+
+---
+
+class: center, middle
+
+# Gracias!
+
+Diapositivas realizadas con el paquete R [**xaringan**](https://github.com/yihui/xaringan).
+
+---
+
+class: inverse, right, bottom
+
+
+&lt;img style="border-radius: 50%;" src="https://github.com/jgbabativam.png" width="150px"/&gt;
+
+# Encuéntrame en...
+
+[<i class="fab  fa-twitter "></i> @jgbabativam](http://twitter.com/jgbabativam)  
+[<i class="fab  fa-github "></i> @jgbabativam](http://github.com/jgbabativam)  
+[<i class="fas  fa-paper-plane "></i> jgbabativam@usal.es](mailto:jgbabativam@usal.es)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "dracula",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

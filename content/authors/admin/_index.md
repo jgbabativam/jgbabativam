@@ -28,18 +28,21 @@ organizations:
   url: ""
 role: Data Science & PhD Student
 social:
-- icon: envelope
-  icon_pack: fas
-  link: '#contact'  # For a direct email link, use "mailto:gbabativam@gmail.com".
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/jgbabativam
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.es/citations?user=2NJRNg8AAAAJ&hl=es
 - icon: github
   icon_pack: fab
   link: https://github.com/jgbabativam
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/giovany-babativa-marquez/
+- icon: google-scholar
+  icon_pack: ai
+  link: https://scholar.google.es/citations?user=2NJRNg8AAAAJ&hl=es  
+- icon: orcid
+  icon_pack: ai
+  link: https://orcid.org/0000-0002-4989-7459
 superuser: true
 title: Giovany Babativa-Márquez
 user_groups:
