@@ -20,7 +20,7 @@
       <description>
 
 
-&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera&lt;/p&gt;
+&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
 
 df &amp;lt;- data.frame( x = rnorm(1000))

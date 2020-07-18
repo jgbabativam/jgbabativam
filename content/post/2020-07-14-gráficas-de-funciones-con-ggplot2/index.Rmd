@@ -33,7 +33,7 @@ projects: []
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Cuando tenía la necesidad de graficar una función solía recurrir a programas como `MATLAB` o simplemente simulaba algunos datos en `R` y lo hacía de la siguiente manera
+Cuando tenía la necesidad de graficar una función solía recurrir a programas como `MATLAB` o simplemente simulaba algunos datos en `R` y lo hacía de la siguiente manera:
 
 ```{r simula, echo=TRUE, message=FALSE, warning=FALSE}
 library(ggplot2)
