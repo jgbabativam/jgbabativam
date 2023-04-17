@@ -4,9 +4,9 @@ authors:
 bio: Mi investigación está orientada al uso de algoritmos de aprendizaje automático aplicados a técnicas de estadística multivariante. 
 education:
   courses:
-  - course: PhD(c) in Statistics
+  - course: PhD in Statistics
     institution: Salamanca University
-    year: 2020
+    year: 2022
   - course: Master in Big Data & Analytics
     institution: Salamanca University
     year: 2020
@@ -26,7 +26,7 @@ interests:
 organizations:
 - name: Salamanca University
   url: ""
-role: Data Science & PhD Student
+role: Data Science
 social:
 - icon: twitter
   icon_pack: fab
@@ -50,4 +50,5 @@ user_groups:
 - Visitors
 ---
 
-Soy estadístico, MSc en estadística, Máster en Big Data & Analytics y candidato a doctor en estadística. Me considero un apasionado por la investigación y la enseñanza de la estadística. Durante más de 15 años de experiencia he tenido la oportunidad de ejercer en cargos directivos en el sector público, ser director de analytics en varias empresas de investigación de mercados y tuve la fortuna de ser el decano de la Facultad de Estadística de la Universidad Santo Tomás de Colombia. Disfruto usar la estadística para resolver problemas reales y encuentro fascinante la automatización de procesos a través de macros en SAS, macros SPSS o utilizando paquetes en R.
+Soy un estadístico con una sólida formación académica y más de 15 años de experiencia en el diseño y análisis de datos en estudios de diferentes temas. Cuento con una maestría en estadística, un máster en Big Data & Analytics y un doctorado en estadística, lo que me ha permitido adquirir un conocimiento profundo de las técnicas estadísticas y su aplicación en diferentes contextos. Me considero un apasionado por la investigación y la enseñanza, no solo de la estadística sino en general del tratamiento de los datos. Durante más de 15 años de experiencia he tenido la oportunidad trabajar en sector público, privado, académico y para ONGs. Me encanta analizar los datos y encontrar la manera más adecuada para mostrar los resultados de manera clara y comprensible para todo tipo de público. 
+
