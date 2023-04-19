@@ -1,19 +1,18 @@
 ---
-title: Resumen y transformación de datos usando dplyr
-author: 'Giovany Babativa'
-date: '2023-04-18'
-slug: data-wrangling
-categories: 
-    - R
-    - dplyr
-tags: 
-    - R
-    - dplyr
+title: "Resumen y transformación de datos usando dplyr"
+author: "Giovany Babativa"
+date: "2023-04-18"
+slug: "data-wrangling"
+categories:
+- R
+- dplyr
+tags:
+- R
+- dplyr
 subtitle: ''
-summary: 'Algunos trucos para facilitar el trabajo de resumir y transformar un conjunto de datos.'
-draft: false
-authors: [Giovany Babativa, PhD]
-lastmod: '2023-04-18T17:05:10-05:00'
+summary: Algunos trucos para facilitar el trabajo de resumir y transformar un conjunto
+  de datos.
+draft: no
 featured: no
 image:
   caption: '[Photo by Robert Lukeman on Unsplash](https://unsplash.com/es/fotos/zNN6ubHmruI)'
