@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>dplyr | Giovany Babativa</title>
-    <link>http://jgbabativam.rbind.io/category/dplyr/</link>
-      <atom:link href="http://jgbabativam.rbind.io/category/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://jgbabativam.netlify.app/category/dplyr/</link>
+      <atom:link href="http://jgbabativam.netlify.app/category/dplyr/index.xml" rel="self" type="application/rss+xml" />
     <description>dplyr</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><copyright>© 2023 Giovany Babativa-Márquez</copyright><lastBuildDate>Tue, 18 Apr 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://jgbabativam.rbind.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <url>http://jgbabativam.netlify.app/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>dplyr</title>
-      <link>http://jgbabativam.rbind.io/category/dplyr/</link>
+      <link>http://jgbabativam.netlify.app/category/dplyr/</link>
     </image>
     
     <item>
       <title>Resumen y transformación de datos usando dplyr</title>
-      <link>http://jgbabativam.rbind.io/post/2023-19-04-transforma-dplyr/</link>
+      <link>http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://jgbabativam.rbind.io/post/2023-19-04-transforma-dplyr/</guid>
+      <guid>http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/</guid>
       <description>
 
 
@@ -163,7 +163,7 @@ datos &amp;lt;- tribble(
   theme(legend.position = &amp;quot;bottom&amp;quot;)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-transforma-dplyr/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;reestructurar-a-lo-ancho&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Reestructurar a lo ancho&lt;/h2&gt;

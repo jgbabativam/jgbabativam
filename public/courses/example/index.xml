@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mis cursos | Giovany Babativa</title>
-    <link>http://jgbabativam.rbind.io/courses/example/</link>
-      <atom:link href="http://jgbabativam.rbind.io/courses/example/index.xml" rel="self" type="application/rss+xml" />
+    <link>http://jgbabativam.netlify.app/courses/example/</link>
+      <atom:link href="http://jgbabativam.netlify.app/courses/example/index.xml" rel="self" type="application/rss+xml" />
     <description>Mis cursos</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><copyright>© 2023 Giovany Babativa-Márquez</copyright><lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://jgbabativam.rbind.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <url>http://jgbabativam.netlify.app/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>Mis cursos</title>
-      <link>http://jgbabativam.rbind.io/courses/example/</link>
+      <link>http://jgbabativam.netlify.app/courses/example/</link>
     </image>
     
     <item>
       <title>Introducción a R con tidyverse</title>
-      <link>http://jgbabativam.rbind.io/courses/example/example1/</link>
+      <link>http://jgbabativam.netlify.app/courses/example/example1/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://jgbabativam.rbind.io/courses/example/example1/</guid>
+      <guid>http://jgbabativam.netlify.app/courses/example/example1/</guid>
       <description>&lt;h2 id=&#34;elementos-básicos&#34;&gt;Elementos básicos&lt;/h2&gt;
 &lt;p&gt;contenido&lt;/p&gt;
 &lt;h2 id=&#34;empezando-con-r-markdown&#34;&gt;Empezando con R Markdown&lt;/h2&gt;
@@ -26,9 +26,9 @@
     
     <item>
       <title>Diseño de gráficas</title>
-      <link>http://jgbabativam.rbind.io/courses/example/example2/</link>
+      <link>http://jgbabativam.netlify.app/courses/example/example2/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://jgbabativam.rbind.io/courses/example/example2/</guid>
+      <guid>http://jgbabativam.netlify.app/courses/example/example2/</guid>
       <description>&lt;h2 id=&#34;visualización-de-datos-con-ggplot2&#34;&gt;Visualización de datos con ggplot2&lt;/h2&gt;
 &lt;p&gt;contenido&lt;/p&gt;
 &lt;h2 id=&#34;visualización-de-datos-con-ploty&#34;&gt;Visualización de datos con Ploty&lt;/h2&gt;
