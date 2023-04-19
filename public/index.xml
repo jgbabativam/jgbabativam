@@ -38,9 +38,9 @@
     
     <item>
       <title>Resumen y transformación de datos usando dplyr</title>
-      <link>http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/</link>
+      <link>http://jgbabativam.rbind.io/post/2023-19-04-transforma-dplyr/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
-      <guid>http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/</guid>
+      <guid>http://jgbabativam.rbind.io/post/2023-19-04-transforma-dplyr/</guid>
       <description>
 
 
@@ -187,7 +187,7 @@ datos &amp;lt;- tribble(
   theme(legend.position = &amp;quot;bottom&amp;quot;)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-transforma-dplyr/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;reestructurar-a-lo-ancho&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Reestructurar a lo ancho&lt;/h2&gt;
