@@ -11,35 +11,14 @@
     <loc>http://jgbabativam.rbind.io/courses/example/example2/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://jgbabativam.rbind.io/categories/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/tag/dplyr/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/category/dplyr/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/post/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/tag/r/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/category/r/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/post/data-wrangling/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://jgbabativam.rbind.io/tags/</loc>
-    <lastmod>2023-04-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://jgbabativam.rbind.io/courses/</loc>
     <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/</loc>
+    <lastmod>2020-07-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/categories/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jgbabativam.rbind.io/tag/ggplot/</loc>
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
@@ -48,6 +27,21 @@
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jgbabativam.rbind.io/post/2020-07-14-graficas-de-funciones-con-ggplot2/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/post/2023-04-18-graficas-de-funciones-con-ggplot2-copia/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/post/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/tag/r/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/category/r/</loc>
+    <lastmod>2020-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://jgbabativam.rbind.io/tags/</loc>
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://jgbabativam.rbind.io/talk/2020-ciema/</loc>
