@@ -5,12 +5,65 @@
     <link>http://jgbabativam.rbind.io/tag/r/</link>
       <atom:link href="http://jgbabativam.rbind.io/tag/r/index.xml" rel="self" type="application/rss+xml" />
     <description>R</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><copyright>© 2023 Giovany Babativa-Márquez</copyright><lastBuildDate>Tue, 14 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>es</language><copyright>© 2023 Giovany Babativa-Márquez</copyright><lastBuildDate>Tue, 18 Apr 2023 00:00:00 +0000</lastBuildDate>
     <image>
       <url>http://jgbabativam.rbind.io/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
       <title>R</title>
       <link>http://jgbabativam.rbind.io/tag/r/</link>
     </image>
+    
+    <item>
+      <title>Resumen y transformación de datos usando dplyr</title>
+      <link>http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/</link>
+      <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/</guid>
+      <description>
+
+
+&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+
+df &amp;lt;- data.frame( x = rnorm(1000))
+
+g1 &amp;lt;- ggplot(df, aes(x)) +
+  geom_density(aes(color = &amp;quot;estimada&amp;quot;), key_glyph = &amp;quot;path&amp;quot;) + theme_classic()
+g1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/simula-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Hace poco encontré que la versión &lt;code&gt;3.3.2&lt;/code&gt; del paquete &lt;code&gt;ggplot2&lt;/code&gt; permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g2 &amp;lt;- g1 +
+      geom_function(aes(color = &amp;quot;teórica&amp;quot;), fun = dnorm)
+g2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para &lt;code&gt;x&lt;/code&gt; en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (&lt;code&gt;~&lt;/code&gt;) después del igual (&lt;code&gt;=&lt;/code&gt;) y la variable debe estar antecedida por un punto &lt;code&gt;.x&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
+  xlim(0, 30) +
+  geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
+   xlim(-3, 3) +
+   geom_function(
+     aes(color = &amp;quot;Normal&amp;quot;),
+     fun =~ 1/sqrt(2 * pi) * exp(-.x^2/2)
+     ) +
+   geom_function(
+     aes(color = &amp;quot;Laplace&amp;quot;),
+     fun =~ 1/2 * exp(-abs(.x))
+   ) + theme_classic() +
+  ylab(&amp;quot;f(x)&amp;quot;) + theme(legend.title = element_blank())&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
+  xlim(-10, 10) +
+  geom_function(aes(color = &amp;quot;lineal&amp;quot;),
+    fun =~ 3*.x + 1 
+    ) +
+  geom_function(aes(color = &amp;quot;cuadrática&amp;quot;),
+    fun =~ 3*.x^2 + .x + 1             
+    ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Graficando funciones con ggplot2</title>
@@ -62,59 +115,6 @@ g2&lt;/code&gt;&lt;/pre&gt;
     fun =~ 3*.x^2 + .x + 1             
     ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Graficando funciones con ggplot2 - Parte 2</title>
-      <link>http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/</link>
-      <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
-      <guid>http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/</guid>
-      <description>
-
-
-&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
-
-df &amp;lt;- data.frame( x = rnorm(1000))
-
-g1 &amp;lt;- ggplot(df, aes(x)) +
-  geom_density(aes(color = &amp;quot;estimada&amp;quot;), key_glyph = &amp;quot;path&amp;quot;) + theme_classic()
-g1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/simula-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Hace poco encontré que la versión &lt;code&gt;3.3.2&lt;/code&gt; del paquete &lt;code&gt;ggplot2&lt;/code&gt; permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g2 &amp;lt;- g1 +
-      geom_function(aes(color = &amp;quot;teórica&amp;quot;), fun = dnorm)
-g2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para &lt;code&gt;x&lt;/code&gt; en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (&lt;code&gt;~&lt;/code&gt;) después del igual (&lt;code&gt;=&lt;/code&gt;) y la variable debe estar antecedida por un punto &lt;code&gt;.x&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
-  xlim(0, 30) +
-  geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
-   xlim(-3, 3) +
-   geom_function(
-     aes(color = &amp;quot;Normal&amp;quot;),
-     fun =~ 1/sqrt(2 * pi) * exp(-.x^2/2)
-     ) +
-   geom_function(
-     aes(color = &amp;quot;Laplace&amp;quot;),
-     fun =~ 1/2 * exp(-abs(.x))
-   ) + theme_classic() +
-  ylab(&amp;quot;f(x)&amp;quot;) + theme(legend.title = element_blank())&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
-  xlim(-10, 10) +
-  geom_function(aes(color = &amp;quot;lineal&amp;quot;),
-    fun =~ 3*.x + 1 
-    ) +
-  geom_function(aes(color = &amp;quot;cuadrática&amp;quot;),
-    fun =~ 3*.x^2 + .x + 1             
-    ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.rbind.io/post/2023-19-04-graficas-de-funciones-con-ggplot2---copia/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
