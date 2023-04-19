@@ -1,0 +1,193 @@
+---
+title: "Resumen y transformación de datos usando dplyr"
+author: "Giovany Babativa"
+date: "2023-04-18"
+slug: "data-wrangling"
+categories:
+- R
+- dplyr
+tags:
+- R
+- dplyr
+subtitle: ''
+summary: Algunos trucos para facilitar el trabajo de resumir y transformar un conjunto
+  de datos.
+draft: false
+featured: false
+image:
+  caption: '[Photo by Robert Lukeman on Unsplash](https://unsplash.com/es/fotos/zNN6ubHmruI)'
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<div id="introducción" class="section level2">
+<h2>Introducción</h2>
+<p>Suponga un conjunto de datos en formato ancho</p>
+<pre class="r"><code>datos &lt;- tribble(
+~&quot;grupo&quot;, ~ &quot;Municipio&quot;, ~&quot;v_2017&quot;, ~&quot;v_2018&quot;, ~&quot;v_2019&quot;, ~&quot;v_2020&quot;, ~&quot;v_2021&quot;,~&quot;v_2022&quot;,~&quot;v_2023&quot;,
+       1,       &quot;11001&quot;,      53,      65,      74,      48,     67,     68,     79,
+       1,       &quot;05001&quot;,      37,      49,      54,      61,     60,     59,     58,
+       1,       &quot;08001&quot;,      25,      38,      45,      33,     36,     34,     33,
+       1,       &quot;76001&quot;,      45,      52,      58,      49,     50,     55,     49,
+       2,       &quot;88001&quot;,      15,      13,      17,      20,     25,     26,     28,
+       2,       &quot;63001&quot;,      17,      25,      33,      48,     55,     58,     65,
+       2,       &quot;50001&quot;,      21,      28,      42,      50,     52,     58,     60,
+       2,       &quot;23001&quot;,      NA,       4,      NA,      25,     28,     35,     45
+)</code></pre>
+</div>
+<div id="resumen-de-múltiples-variables" class="section level2 tabset">
+<h2>Resumen de múltiples variables</h2>
+<p>Cuando hablamos de depurar datos en R, también conocido como proceso de <code>data wrangling</code>, uno de los paquetes más utilizados es <code>dplyr</code>, incluido en el entorno <code>tidyverse</code>. Estos procesos suelen ser los que más demandan tiempo dentro del ciclo de la analítica de los datos, y de ello depende en gran medida la calidad de los datos.</p>
+<p>Dentro de los verbos de <code>dplyr</code> los comandos <code>starts_with("prefijo")</code> permiten seleccionar las variables que inician con determinado patrón o <code>ends_with("sufijo")</code> para las variables que finalizan con determinado patrón. Si buscamos resumir una gran cantidad de variables que comparten un prefijo o un sufijo, se pueden usar <code>summarise_at</code> para afectar a un conjunto de variables o el comando <code>across</code></p>
+<div id="usando-summarise_at" class="section level3">
+<h3>Usando <code>summarise_at</code></h3>
+<p>En este caso se creará el objeto <code>res1</code> que contiene la información de la media y la desviación estándar para todas las variables que inician con el prefijo <code>v_20</code>, resumidas por la variable grupo.</p>
+<pre class="r"><code>(res1 &lt;- datos |&gt;  
+         group_by(grupo) |&gt; 
+         summarise_at(vars(starts_with(&quot;v_20&quot;)), 
+                     list(media = ~mean(., na.rm = T), 
+                          desv.est = ~sd(., na.rm = T)))) </code></pre>
+<pre><code>## # A tibble: 2 × 15
+##   grupo v_2017_media v_2018_media v_2019_media v_2020_media v_2021_media
+##   &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1     1         40           51           57.8         47.8         53.2
+## 2     2         17.7         17.5         30.7         35.8         40  
+## # ℹ 9 more variables: v_2022_media &lt;dbl&gt;, v_2023_media &lt;dbl&gt;,
+## #   v_2017_desv.est &lt;dbl&gt;, v_2018_desv.est &lt;dbl&gt;, v_2019_desv.est &lt;dbl&gt;,
+## #   v_2020_desv.est &lt;dbl&gt;, v_2021_desv.est &lt;dbl&gt;, v_2022_desv.est &lt;dbl&gt;,
+## #   v_2023_desv.est &lt;dbl&gt;</code></pre>
+</div>
+<div id="usando-across" class="section level3">
+<h3>Usando <code>across</code></h3>
+<p>A diferencia del caso anterior, cuando se usa la función <code>across</code>, se realiza sobre el verbo general <code>summarise()</code>, el primer argumento indicará cuáles son las variables que se van a afectar, que en este caso corresponde a las variables con prefijo <code>v_20</code>, para las cuales se calcula la media y desviación estándar por grupo. Hacerlo de esta forma evita el uso de verbos como <code>summarise_all()</code>, <code>summarise_at()</code> o <code>summarise_if()</code>.</p>
+<p>En este caso, también se le asignó a cada variable de resumen un nombre con el argumento <code>.names = "{fn}_del_{col}"</code> que toma como prefijo el nombre asignado a la función (media o desv.est), separa con una barra al piso, seguido por la palabla <em>del</em> y finaliza con el nombre de la variable original.</p>
+<pre class="r"><code>(res2 &lt;- datos |&gt;  
+         group_by(grupo) |&gt; 
+         summarise(across(starts_with(&quot;v_20&quot;), 
+                   list(media = ~mean(., na.rm = T), 
+                        desv.est = ~sd(., na.rm = T)), 
+                          .names = &quot;{fn}_del_{col}&quot;)))</code></pre>
+<pre><code>## # A tibble: 2 × 15
+##   grupo media_del_v_2017 desv.est_del_v_2017 media_del_v_2018
+##   &lt;dbl&gt;            &lt;dbl&gt;               &lt;dbl&gt;            &lt;dbl&gt;
+## 1     1             40                 11.9              51  
+## 2     2             17.7                3.06             17.5
+## # ℹ 11 more variables: desv.est_del_v_2018 &lt;dbl&gt;, media_del_v_2019 &lt;dbl&gt;,
+## #   desv.est_del_v_2019 &lt;dbl&gt;, media_del_v_2020 &lt;dbl&gt;,
+## #   desv.est_del_v_2020 &lt;dbl&gt;, media_del_v_2021 &lt;dbl&gt;,
+## #   desv.est_del_v_2021 &lt;dbl&gt;, media_del_v_2022 &lt;dbl&gt;,
+## #   desv.est_del_v_2022 &lt;dbl&gt;, media_del_v_2023 &lt;dbl&gt;,
+## #   desv.est_del_v_2023 &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div id="reubicación-de-variables" class="section level2">
+<h2>Reubicación de variables</h2>
+<p>Es posible que quiera ordenar su conjunto de datos para dejar algunas variables al inicio o al final. Una posibilidad es usar el verbo <code>select()</code> pero esto le implicaría indicar el orden de cada una de las variables, lo cual resulta tedioso. Una solución para este inconveniente es utilizar el verbo <code>relocate()</code> listando las variables de interés y especificando un argumento <code>.before</code> o <code>.after</code> para indicar si las quiere antes o después de alguna variable específica.</p>
+<p>En el siguiente ejemplo se toma el conjunto de datos <code>res2</code> obtenido previamente y las variables se reordenan colocando todas las medias en un primer bloque (luego de la variable grupo), de manera que las desviaciones estándar quedarán en un siguiente bloque.</p>
+<pre class="r"><code>(res3 &lt;- res2 |&gt; 
+         relocate(starts_with(&quot;media&quot;), .after = grupo))</code></pre>
+<pre><code>## # A tibble: 2 × 15
+##   grupo media_del_v_2017 media_del_v_2018 media_del_v_2019 media_del_v_2020
+##   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1     1             40               51               57.8             47.8
+## 2     2             17.7             17.5             30.7             35.8
+## # ℹ 10 more variables: media_del_v_2021 &lt;dbl&gt;, media_del_v_2022 &lt;dbl&gt;,
+## #   media_del_v_2023 &lt;dbl&gt;, desv.est_del_v_2017 &lt;dbl&gt;,
+## #   desv.est_del_v_2018 &lt;dbl&gt;, desv.est_del_v_2019 &lt;dbl&gt;,
+## #   desv.est_del_v_2020 &lt;dbl&gt;, desv.est_del_v_2021 &lt;dbl&gt;,
+## #   desv.est_del_v_2022 &lt;dbl&gt;, desv.est_del_v_2023 &lt;dbl&gt;</code></pre>
+</div>
+<div id="resumen-de-estadísticas-por-filas" class="section level2">
+<h2>Resumen de estadísticas por filas</h2>
+<p>En ocasiones deseamos obtener un resumen de las estadísticas para un conjunto de variables, en el caso del conjunto de datos de ejemplo podríamos estar interesados en calcular la media o la desviación estándar para cada municipio. Una manera de hacerlo con el adverbio<code>c_across</code> una vez se ha especificado que los cálculos serán por fila usando el verbo <code>rowwise()</code></p>
+<pre class="r"><code>datos |&gt; 
+  rowwise() |&gt; 
+  dplyr::mutate(media = mean(c_across(starts_with(&quot;v_20&quot;)), na.rm = T))</code></pre>
+<pre><code>## # A tibble: 8 × 10
+## # Rowwise: 
+##   grupo Municipio v_2017 v_2018 v_2019 v_2020 v_2021 v_2022 v_2023 media
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+## 1     1 11001         53     65     74     48     67     68     79  64.9
+## 2     1 05001         37     49     54     61     60     59     58  54  
+## 3     1 08001         25     38     45     33     36     34     33  34.9
+## 4     1 76001         45     52     58     49     50     55     49  51.1
+## 5     2 88001         15     13     17     20     25     26     28  20.6
+## 6     2 63001         17     25     33     48     55     58     65  43  
+## 7     2 50001         21     28     42     50     52     58     60  44.4
+## 8     2 23001         NA      4     NA     25     28     35     45  27.4</code></pre>
+</div>
+<div id="reestructurar-a-lo-largo" class="section level2">
+<h2>Reestructurar a lo largo</h2>
+<p>En ocasiones es útil dar una estructura larga al conjunto de datos, esto puede agilizar algunos procesos. En nuestro conjunto de datos cada municipio es una fila y los datos por año se encuentran en las columnas y posteriormente fue resumido con las estadísticas de la media y desviación estándar por grupo. Si nuestro propósito fuera generar una gráfica del comportamiento de cada grupo por año, esta estructura resultaría un poco compleja de manejar.</p>
+<p>En el siguiente ejemplo se usa <code>pivot_longer()</code> para pivotear la tabla y ponerla hacía lo largo. En los argumentos se le indica que la columna <em>grupo</em> es la única que no se afectará (<em>cols = -grupo</em>), en el argumento <code>names_to</code> se le ha indicado que vamos a crear dos columnas a partir del nombre de las variables de los datos originales, estas se denominarán <em>estadistica</em> y <em>anio</em>; ahora es necesario indicarle el patrón que tiene los nombres de las variables con el fin de que los pueda separar, así que el comando <code>names_pattern = "(.*)_del_v_(.*)"</code> les está indicando que el patrón debe ser: tomar todo lo que está antes de “<em>del_v</em>” y lo conservará en la columna <em>estadistica</em>, mientras que todo lo que esté posterior a ese patrón lo conservará en la columna <em>anio</em>. Los valores correspondientes se almancenan en la columna <em>valor</em>.</p>
+<pre class="r"><code>(reesL &lt;- res2 |&gt;  
+         pivot_longer(cols = -grupo, 
+               names_to = c(&quot;estadistica&quot;, &quot;anio&quot;), 
+               names_pattern = &quot;(.*)_del_v_(.*)&quot;, 
+               values_to = &quot;valor&quot;))</code></pre>
+<pre><code>## # A tibble: 28 × 4
+##    grupo estadistica anio  valor
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt; &lt;dbl&gt;
+##  1     1 media       2017   40  
+##  2     1 desv.est    2017   11.9
+##  3     1 media       2018   51  
+##  4     1 desv.est    2018   11.1
+##  5     1 media       2019   57.8
+##  6     1 desv.est    2019   12.1
+##  7     1 media       2020   47.8
+##  8     1 desv.est    2020   11.5
+##  9     1 media       2021   53.2
+## 10     1 desv.est    2021   13.5
+## # ℹ 18 more rows</code></pre>
+<p>Ahora sería relativamente rápido hacer un gráfico de las medias</p>
+<pre class="r"><code>reesL |&gt; 
+  filter(estadistica == &quot;media&quot;) |&gt; 
+  mutate(grupo = factor(grupo, levels = 1:2, labels=c(&quot;Grupo 1&quot;, &quot;grupo 2&quot;))) |&gt; 
+  ggplot(aes(x = anio, y = valor, group = grupo, color = grupo, shape = grupo)) +
+  geom_line() +
+  geom_point() +
+  labs(x = &quot;Año&quot;, y = &quot;Promedio&quot;) +
+  theme_bw() +
+  theme(legend.position = &quot;bottom&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="reestructurar-a-lo-ancho" class="section level2">
+<h2>Reestructurar a lo ancho</h2>
+<p>Es posible que la estructura anterio no sea de todo su agrado, y que prefiera tener una columna con la media y otra con la desviación estándar. Para ello, el conjunto se puede convertir a un formato ancho de la siguiente manera</p>
+<pre class="r"><code>(reesA &lt;- reesL |&gt; 
+         pivot_wider(names_from = estadistica,
+                     values_from = valor))</code></pre>
+<pre><code>## # A tibble: 14 × 4
+##    grupo anio  media desv.est
+##    &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1     1 2017   40      11.9 
+##  2     1 2018   51      11.1 
+##  3     1 2019   57.8    12.1 
+##  4     1 2020   47.8    11.5 
+##  5     1 2021   53.2    13.5 
+##  6     1 2022   54      14.4 
+##  7     1 2023   54.8    19.2 
+##  8     2 2017   17.7     3.06
+##  9     2 2018   17.5    11.1 
+## 10     2 2019   30.7    12.7 
+## 11     2 2020   35.8    15.5 
+## 12     2 2021   40      15.7 
+## 13     2 2022   44.2    16.3 
+## 14     2 2023   49.5    16.7</code></pre>
+<p>Otro ejemplo puede ser revertir el conjunto de datos largo y llevarlo a la estructura inicial, que se puede realizar de la siguiente forma</p>
+<pre class="r"><code>(reesA2 &lt;- reesL |&gt; 
+          pivot_wider(names_from = c(&quot;estadistica&quot;, &quot;anio&quot;),
+                     values_from = valor))</code></pre>
+<pre><code>## # A tibble: 2 × 15
+##   grupo media_2017 desv.est_2017 media_2018 desv.est_2018 media_2019
+##   &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;         &lt;dbl&gt;      &lt;dbl&gt;
+## 1     1       40           11.9        51            11.1       57.8
+## 2     2       17.7          3.06       17.5          11.1       30.7
+## # ℹ 9 more variables: desv.est_2019 &lt;dbl&gt;, media_2020 &lt;dbl&gt;,
+## #   desv.est_2020 &lt;dbl&gt;, media_2021 &lt;dbl&gt;, desv.est_2021 &lt;dbl&gt;,
+## #   media_2022 &lt;dbl&gt;, desv.est_2022 &lt;dbl&gt;, media_2023 &lt;dbl&gt;,
+## #   desv.est_2023 &lt;dbl&gt;</code></pre>
+</div>
