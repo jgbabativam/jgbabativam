@@ -1,7 +1,6 @@
 ---
 title: "Resumen y transformación de datos usando dplyr"
 author: "Giovany Babativa"
-date: "2023-04-18"
 tags: 
     - R
     - dplyr
@@ -9,7 +8,8 @@ categories:
     - R
     - dplyr
 subtitle: ''
-summary: "Algunos trucos para facilitar el trabajo de resumir y transformar un conjunto de datos"
+summary: "Algunos trucos para optimizar el resumen de estadísticas y transformación de datos"
+date: '2023-04-18'
 featured: false
 draft: false
 
@@ -54,7 +54,7 @@ datos <- tribble(
 ```
 
 
-## Resumen de múltiples variables {.tabset}
+## Resumen de múltiples variables 
 
 Cuando hablamos de depurar datos en R, también conocido como proceso de `data wrangling`, uno de los paquetes más utilizados es `dplyr`, incluido en el entorno `tidyverse`.  Estos procesos suelen ser los que más demandan tiempo dentro del ciclo de la analítica de los datos, y de ello depende en gran medida la calidad de los datos. 
 
@@ -127,8 +127,8 @@ En el siguiente ejemplo se usa `pivot_longer()` para pivotear la tabla y ponerla
 
 Ahora sería relativamente rápido hacer un gráfico de las medias
 
-```{r}
-reesL |> 
+```{r, echo=TRUE}
+p <- reesL |> 
   filter(estadistica == "media") |> 
   mutate(grupo = factor(grupo, levels = 1:2, labels=c("Grupo 1", "grupo 2"))) |> 
   ggplot(aes(x = anio, y = valor, group = grupo, color = grupo, shape = grupo)) +
@@ -137,6 +137,8 @@ reesL |>
   labs(x = "Año", y = "Promedio") +
   theme_bw() +
   theme(legend.position = "bottom")
+
+p
 ```
 
 
