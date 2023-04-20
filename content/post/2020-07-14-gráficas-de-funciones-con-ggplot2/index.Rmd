@@ -30,7 +30,7 @@ projects: []
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, fig.path = "static")
 ```
 
 Cuando tenía la necesidad de graficar una función solía recurrir a programas como `MATLAB` o simplemente simulaba algunos datos en `R` y lo hacía de la siguiente manera:

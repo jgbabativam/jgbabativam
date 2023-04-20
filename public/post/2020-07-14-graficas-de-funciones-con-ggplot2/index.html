@@ -725,19 +725,19 @@ g1 &lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &quot;estimada&quot;), key_glyph = &quot;path&quot;) + theme_classic()
 g1
 </code></pre>
-<img src="http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/simula-1.png" width="672" />
+<img src="staticsimula-1.png" width="672" />
 <p>Hace poco encontré que la versión <code>3.3.2</code> del paquete <code>ggplot2</code> permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera</p>
 <pre><code class="language-r">g2 &lt;- g1 +
       geom_function(aes(color = &quot;teórica&quot;), fun = dnorm)
 g2
 </code></pre>
-<img src="http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="staticunnamed-chunk-1-1.png" width="672" />
 <p>Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para <code>x</code> en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (<code>~</code>) después del igual (<code>=</code>) y la variable debe estar antecedida por un punto <code>.x</code>.</p>
 <pre><code class="language-r">ggplot() +
   xlim(0, 30) +
   geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()
 </code></pre>
-<img src="http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="staticunnamed-chunk-2-1.png" width="672" />
 <p>Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:</p>
 <pre><code class="language-r">ggplot() +
    xlim(-3, 3) +
@@ -751,7 +751,7 @@ g2
    ) + theme_classic() +
   ylab(&quot;f(x)&quot;) + theme(legend.title = element_blank())
 </code></pre>
-<img src="http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="staticunnamed-chunk-3-1.png" width="672" />
 <p>Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad</p>
 <pre><code class="language-r">ggplot() +
   xlim(-10, 10) +
@@ -762,7 +762,7 @@ g2
     fun =~ 3*.x^2 + .x + 1             
     ) + ylab(&quot;f(x)&quot;) + theme_classic()
 </code></pre>
-<img src="http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="staticunnamed-chunk-4-1.png" width="672" />
 
     </div>
 

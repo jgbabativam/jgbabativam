@@ -44,7 +44,7 @@ g1 <- ggplot(df, aes(x)) +
 g1
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/simula-1.png" width="672" />
+<img src="staticsimula-1.png" width="672" />
 
 Hace poco encontré que la versión `3.3.2` del paquete `ggplot2` permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera
 
@@ -54,7 +54,7 @@ g2 <- g1 +
 g2
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="staticunnamed-chunk-1-1.png" width="672" />
 
 Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para `x` en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (`~`) después del igual (`=`) y la variable debe estar antecedida por un punto `.x`.
 
@@ -65,7 +65,7 @@ ggplot() +
   geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="staticunnamed-chunk-2-1.png" width="672" />
 
 Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:
 
@@ -84,7 +84,7 @@ ggplot() +
   ylab("f(x)") + theme(legend.title = element_blank())
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="staticunnamed-chunk-3-1.png" width="672" />
 
 Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad
 
@@ -100,5 +100,5 @@ ggplot() +
     ) + ylab("f(x)") + theme_classic()
 ```
 
-<img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="staticunnamed-chunk-4-1.png" width="672" />
 

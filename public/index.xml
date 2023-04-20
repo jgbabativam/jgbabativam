@@ -231,19 +231,19 @@ g1 &amp;lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &amp;quot;estimada&amp;quot;), key_glyph = &amp;quot;path&amp;quot;) + theme_classic()
 g1
 &lt;/code&gt;&lt;/pre&gt;
-&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/simula-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;staticsimula-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Hace poco encontré que la versión &lt;code&gt;3.3.2&lt;/code&gt; del paquete &lt;code&gt;ggplot2&lt;/code&gt; permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;g2 &amp;lt;- g1 +
       geom_function(aes(color = &amp;quot;teórica&amp;quot;), fun = dnorm)
 g2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;staticunnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para &lt;code&gt;x&lt;/code&gt; en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (&lt;code&gt;~&lt;/code&gt;) después del igual (&lt;code&gt;=&lt;/code&gt;) y la variable debe estar antecedida por un punto &lt;code&gt;.x&lt;/code&gt;.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot() +
   xlim(0, 30) +
   geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;staticunnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot() +
    xlim(-3, 3) +
@@ -257,7 +257,7 @@ g2
    ) + theme_classic() +
   ylab(&amp;quot;f(x)&amp;quot;) + theme(legend.title = element_blank())
 &lt;/code&gt;&lt;/pre&gt;
-&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;staticunnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot() +
   xlim(-10, 10) +
@@ -268,7 +268,7 @@ g2
     fun =~ 3*.x^2 + .x + 1             
     ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()
 &lt;/code&gt;&lt;/pre&gt;
-&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;staticunnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;
 </description>
     </item>
     
