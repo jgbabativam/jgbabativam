@@ -1,44 +1,36 @@
 ---
 title: "Resumen y transformación de datos usando dplyr"
 author: "Giovany Babativa"
-tags: 
-    - R
-    - dplyr
-categories: 
-    - R
-    - dplyr
+date: "2023-04-18"
+categories:
+- R
+- dplyr
 subtitle: ''
-summary: "Estos son algunos trucos para optimizar el resumen de estadísticas y transformación de datos"
-date: '2023-04-18'
-featured: false
-draft: false
-
-# Featured image
-# To use, add an image named `featured.jpg/png` to your page's folder.
-# Focal points: Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight.
-image: 
+summary: Estos son algunos trucos para optimizar el resumen de estadísticas y transformación
+  de datos
+tags:
+- R
+- dplyr
+featured: no
+draft: no
+image:
   caption: '[Photo by Robert Lukeman on Unsplash](https://unsplash.com/photos/zNN6ubHmruI)'
-  focal_point: ""
+  focal_point: ''
   preview_only: no
-
-# Projects (optional).
-#   Associate this post with one or more of your projects.
-#   Simply enter your project's folder or file name without extension.
-#   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
-#   Otherwise, set `projects = []`.
 projects: []
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, fig.path = "static")
 ```
 
 Cuando hacemos análisis de los datos, la actividad que demanda el mayor tiempo consiste en realizar toda la limpieza, depuración y transformación de los datos para llevarlos a la estructura requerida por cada análisis que vayamos a implementar. Esta no es una tarea simple pero podemos apoyarnos en varias funciones que nos pueden facilitar el trabajo.
 
 Suponga que se tiene un conjunto de datos a nivel de municipio con algunos indicadores por año, presentando la siguiente estructura:
 
-```{r datos}
+```{r datos, echo=FALSE}
 library(tidyverse)
+library(rmarkdown)
 
 datos <- tribble(
 ~"grupo", ~ "Municipio", ~"v_2017", ~"v_2018", ~"v_2019", ~"v_2020", ~"v_2021",~"v_2022",~"v_2023",
@@ -51,6 +43,10 @@ datos <- tribble(
        2,       "50001",      21,      28,      42,      50,     52,     58,     60,
        2,       "23001",      NA,       4,      NA,      25,     28,     35,     45
 )
+```
+
+```{r}
+paged_table(datos)
 ```
 
 Ahora pensemos en que se desea realizar un resumen de las estadísticas básicas por grupo, o que deseamos realizar una gráfica de tendencias. A continuación ilustro algunas funciones que pueden ayudar a agilizar estas tareas.
@@ -128,7 +124,7 @@ En el siguiente ejemplo se usa `pivot_longer()` para pivotear la tabla y ponerla
 
 Ahora sería relativamente rápido hacer un gráfico de las medias
 
-```{r, echo=TRUE}
+```{r tendencia, echo=TRUE}
 p <- reesL |> 
   filter(estadistica == "media") |> 
   mutate(grupo = factor(grupo, levels = 1:2, labels=c("Grupo 1", "grupo 2"))) |> 

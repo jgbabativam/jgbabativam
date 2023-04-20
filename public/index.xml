@@ -42,12 +42,13 @@
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
       <guid>http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/</guid>
       <description>
+&lt;link href=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;Cuando hacemos análisis de los datos, la actividad que demanda el mayor tiempo consiste en realizar toda la limpieza, depuración y transformación de los datos para llevarlos a la estructura requerida por cada análisis que vayamos a implementar. Esta no es una tarea simple pero podemos apoyarnos en varias funciones que nos pueden facilitar el trabajo.&lt;/p&gt;
 &lt;p&gt;Suponga que se tiene un conjunto de datos a nivel de municipio con algunos indicadores por año, presentando la siguiente estructura:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+&lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
 ## ✔ ggplot2 3.4.1      ✔ purrr   1.0.1 
 ## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
 ## ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
@@ -56,19 +57,13 @@
 ## Warning: package &amp;#39;forcats&amp;#39; was built under R version 4.2.3
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-
-datos &amp;lt;- tribble(
-~&amp;quot;grupo&amp;quot;, ~ &amp;quot;Municipio&amp;quot;, ~&amp;quot;v_2017&amp;quot;, ~&amp;quot;v_2018&amp;quot;, ~&amp;quot;v_2019&amp;quot;, ~&amp;quot;v_2020&amp;quot;, ~&amp;quot;v_2021&amp;quot;,~&amp;quot;v_2022&amp;quot;,~&amp;quot;v_2023&amp;quot;,
-       1,       &amp;quot;11001&amp;quot;,      53,      65,      74,      48,     67,     68,     79,
-       1,       &amp;quot;05001&amp;quot;,      37,      49,      54,      61,     60,     59,     58,
-       1,       &amp;quot;08001&amp;quot;,      25,      38,      45,      33,     36,     34,     33,
-       1,       &amp;quot;76001&amp;quot;,      45,      52,      58,      49,     50,     55,     49,
-       2,       &amp;quot;88001&amp;quot;,      15,      13,      17,      20,     25,     26,     28,
-       2,       &amp;quot;63001&amp;quot;,      17,      25,      33,      48,     55,     58,     65,
-       2,       &amp;quot;50001&amp;quot;,      21,      28,      42,      50,     52,     58,     60,
-       2,       &amp;quot;23001&amp;quot;,      NA,       4,      NA,      25,     28,     35,     45
-)&lt;/code&gt;&lt;/pre&gt;
+## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paged_table(datos)&lt;/code&gt;&lt;/pre&gt;
+&lt;div data-pagedtable=&#34;false&#34;&gt;
+&lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
+{&#34;columns&#34;:[{&#34;label&#34;:[&#34;grupo&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;Municipio&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;v_2017&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2018&#34;],&#34;name&#34;:[4],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2019&#34;],&#34;name&#34;:[5],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2020&#34;],&#34;name&#34;:[6],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2021&#34;],&#34;name&#34;:[7],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2022&#34;],&#34;name&#34;:[8],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2023&#34;],&#34;name&#34;:[9],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;11001&#34;,&#34;3&#34;:&#34;53&#34;,&#34;4&#34;:&#34;65&#34;,&#34;5&#34;:&#34;74&#34;,&#34;6&#34;:&#34;48&#34;,&#34;7&#34;:&#34;67&#34;,&#34;8&#34;:&#34;68&#34;,&#34;9&#34;:&#34;79&#34;},{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;05001&#34;,&#34;3&#34;:&#34;37&#34;,&#34;4&#34;:&#34;49&#34;,&#34;5&#34;:&#34;54&#34;,&#34;6&#34;:&#34;61&#34;,&#34;7&#34;:&#34;60&#34;,&#34;8&#34;:&#34;59&#34;,&#34;9&#34;:&#34;58&#34;},{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;08001&#34;,&#34;3&#34;:&#34;25&#34;,&#34;4&#34;:&#34;38&#34;,&#34;5&#34;:&#34;45&#34;,&#34;6&#34;:&#34;33&#34;,&#34;7&#34;:&#34;36&#34;,&#34;8&#34;:&#34;34&#34;,&#34;9&#34;:&#34;33&#34;},{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;76001&#34;,&#34;3&#34;:&#34;45&#34;,&#34;4&#34;:&#34;52&#34;,&#34;5&#34;:&#34;58&#34;,&#34;6&#34;:&#34;49&#34;,&#34;7&#34;:&#34;50&#34;,&#34;8&#34;:&#34;55&#34;,&#34;9&#34;:&#34;49&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;88001&#34;,&#34;3&#34;:&#34;15&#34;,&#34;4&#34;:&#34;13&#34;,&#34;5&#34;:&#34;17&#34;,&#34;6&#34;:&#34;20&#34;,&#34;7&#34;:&#34;25&#34;,&#34;8&#34;:&#34;26&#34;,&#34;9&#34;:&#34;28&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;63001&#34;,&#34;3&#34;:&#34;17&#34;,&#34;4&#34;:&#34;25&#34;,&#34;5&#34;:&#34;33&#34;,&#34;6&#34;:&#34;48&#34;,&#34;7&#34;:&#34;55&#34;,&#34;8&#34;:&#34;58&#34;,&#34;9&#34;:&#34;65&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;50001&#34;,&#34;3&#34;:&#34;21&#34;,&#34;4&#34;:&#34;28&#34;,&#34;5&#34;:&#34;42&#34;,&#34;6&#34;:&#34;50&#34;,&#34;7&#34;:&#34;52&#34;,&#34;8&#34;:&#34;58&#34;,&#34;9&#34;:&#34;60&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;23001&#34;,&#34;3&#34;:&#34;NA&#34;,&#34;4&#34;:&#34;4&#34;,&#34;5&#34;:&#34;NA&#34;,&#34;6&#34;:&#34;25&#34;,&#34;7&#34;:&#34;28&#34;,&#34;8&#34;:&#34;35&#34;,&#34;9&#34;:&#34;45&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
+  &lt;/script&gt;
+&lt;/div&gt;
 &lt;p&gt;Ahora pensemos en que se desea realizar un resumen de las estadísticas básicas por grupo, o que deseamos realizar una gráfica de tendencias. A continuación ilustro algunas funciones que pueden ayudar a agilizar estas tareas.&lt;/p&gt;
 &lt;div id=&#34;resumen-de-múltiples-variables&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Resumen de múltiples variables&lt;/h2&gt;
@@ -187,7 +182,7 @@ datos &amp;lt;- tribble(
   theme(legend.position = &amp;quot;bottom&amp;quot;)
 
 p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;statictendencia-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;reestructurar-a-lo-ancho&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Reestructurar a lo ancho&lt;/h2&gt;
