@@ -41,11 +41,8 @@
       <link>http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/</link>
       <pubDate>Tue, 18 Apr 2023 00:00:00 +0000</pubDate>
       <guid>http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/</guid>
-      <description>
-&lt;link href=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
+      <description>&lt;link href=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/pagedtable/css/pagedtable.css&#34; rel=&#34;stylesheet&#34; /&gt;
 &lt;script src=&#34;http://jgbabativam.netlify.app/post/2023-19-04-transforma-dplyr/index_files/pagedtable/js/pagedtable.js&#34;&gt;&lt;/script&gt;
-
-
 &lt;p&gt;Cuando hacemos análisis de los datos, la actividad que demanda el mayor tiempo consiste en realizar toda la limpieza, depuración y transformación de los datos para llevarlos a la estructura requerida por cada análisis que vayamos a implementar. Esta no es una tarea simple pero podemos apoyarnos en varias funciones que nos pueden facilitar el trabajo.&lt;/p&gt;
 &lt;p&gt;Suponga que se tiene un conjunto de datos a nivel de municipio con algunos indicadores por año, presentando la siguiente estructura:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
@@ -53,26 +50,26 @@
 ## ✔ tibble  3.1.8      ✔ dplyr   1.0.10
 ## ✔ tidyr   1.2.1      ✔ stringr 1.5.0 
 ## ✔ readr   2.1.3      ✔ forcats 1.0.0
-## Warning: package &amp;#39;ggplot2&amp;#39; was built under R version 4.2.3
-## Warning: package &amp;#39;forcats&amp;#39; was built under R version 4.2.3
+## Warning: package &#39;ggplot2&#39; was built under R version 4.2.3
+## Warning: package &#39;forcats&#39; was built under R version 4.2.3
 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;paged_table(datos)&lt;/code&gt;&lt;/pre&gt;
+## ✖ dplyr::lag()    masks stats::lag()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;paged_table(datos)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;div data-pagedtable=&#34;false&#34;&gt;
-&lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
+  &lt;script data-pagedtable-source type=&#34;application/json&#34;&gt;
 {&#34;columns&#34;:[{&#34;label&#34;:[&#34;grupo&#34;],&#34;name&#34;:[1],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;Municipio&#34;],&#34;name&#34;:[2],&#34;type&#34;:[&#34;chr&#34;],&#34;align&#34;:[&#34;left&#34;]},{&#34;label&#34;:[&#34;v_2017&#34;],&#34;name&#34;:[3],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2018&#34;],&#34;name&#34;:[4],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2019&#34;],&#34;name&#34;:[5],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2020&#34;],&#34;name&#34;:[6],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2021&#34;],&#34;name&#34;:[7],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2022&#34;],&#34;name&#34;:[8],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]},{&#34;label&#34;:[&#34;v_2023&#34;],&#34;name&#34;:[9],&#34;type&#34;:[&#34;dbl&#34;],&#34;align&#34;:[&#34;right&#34;]}],&#34;data&#34;:[{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;11001&#34;,&#34;3&#34;:&#34;53&#34;,&#34;4&#34;:&#34;65&#34;,&#34;5&#34;:&#34;74&#34;,&#34;6&#34;:&#34;48&#34;,&#34;7&#34;:&#34;67&#34;,&#34;8&#34;:&#34;68&#34;,&#34;9&#34;:&#34;79&#34;},{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;05001&#34;,&#34;3&#34;:&#34;37&#34;,&#34;4&#34;:&#34;49&#34;,&#34;5&#34;:&#34;54&#34;,&#34;6&#34;:&#34;61&#34;,&#34;7&#34;:&#34;60&#34;,&#34;8&#34;:&#34;59&#34;,&#34;9&#34;:&#34;58&#34;},{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;08001&#34;,&#34;3&#34;:&#34;25&#34;,&#34;4&#34;:&#34;38&#34;,&#34;5&#34;:&#34;45&#34;,&#34;6&#34;:&#34;33&#34;,&#34;7&#34;:&#34;36&#34;,&#34;8&#34;:&#34;34&#34;,&#34;9&#34;:&#34;33&#34;},{&#34;1&#34;:&#34;1&#34;,&#34;2&#34;:&#34;76001&#34;,&#34;3&#34;:&#34;45&#34;,&#34;4&#34;:&#34;52&#34;,&#34;5&#34;:&#34;58&#34;,&#34;6&#34;:&#34;49&#34;,&#34;7&#34;:&#34;50&#34;,&#34;8&#34;:&#34;55&#34;,&#34;9&#34;:&#34;49&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;88001&#34;,&#34;3&#34;:&#34;15&#34;,&#34;4&#34;:&#34;13&#34;,&#34;5&#34;:&#34;17&#34;,&#34;6&#34;:&#34;20&#34;,&#34;7&#34;:&#34;25&#34;,&#34;8&#34;:&#34;26&#34;,&#34;9&#34;:&#34;28&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;63001&#34;,&#34;3&#34;:&#34;17&#34;,&#34;4&#34;:&#34;25&#34;,&#34;5&#34;:&#34;33&#34;,&#34;6&#34;:&#34;48&#34;,&#34;7&#34;:&#34;55&#34;,&#34;8&#34;:&#34;58&#34;,&#34;9&#34;:&#34;65&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;50001&#34;,&#34;3&#34;:&#34;21&#34;,&#34;4&#34;:&#34;28&#34;,&#34;5&#34;:&#34;42&#34;,&#34;6&#34;:&#34;50&#34;,&#34;7&#34;:&#34;52&#34;,&#34;8&#34;:&#34;58&#34;,&#34;9&#34;:&#34;60&#34;},{&#34;1&#34;:&#34;2&#34;,&#34;2&#34;:&#34;23001&#34;,&#34;3&#34;:&#34;NA&#34;,&#34;4&#34;:&#34;4&#34;,&#34;5&#34;:&#34;NA&#34;,&#34;6&#34;:&#34;25&#34;,&#34;7&#34;:&#34;28&#34;,&#34;8&#34;:&#34;35&#34;,&#34;9&#34;:&#34;45&#34;}],&#34;options&#34;:{&#34;columns&#34;:{&#34;min&#34;:{},&#34;max&#34;:[10]},&#34;rows&#34;:{&#34;min&#34;:[10],&#34;max&#34;:[10]},&#34;pages&#34;:{}}}
   &lt;/script&gt;
 &lt;/div&gt;
 &lt;p&gt;Ahora pensemos en que se desea realizar un resumen de las estadísticas básicas por grupo, o que deseamos realizar una gráfica de tendencias. A continuación ilustro algunas funciones que pueden ayudar a agilizar estas tareas.&lt;/p&gt;
-&lt;div id=&#34;resumen-de-múltiples-variables&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Resumen de múltiples variables&lt;/h2&gt;
-&lt;p&gt;Cuando hablamos de depurar datos en R, también conocido como proceso de &lt;code&gt;data wrangling&lt;/code&gt;, uno de los paquetes más utilizados es &lt;code&gt;dplyr&lt;/code&gt;, incluido en el entorno &lt;code&gt;tidyverse&lt;/code&gt;. Estos procesos suelen ser los que más demandan tiempo dentro del ciclo de la analítica de los datos, y de ello depende en gran medida la calidad de los datos.&lt;/p&gt;
-&lt;p&gt;Dentro de los verbos de &lt;code&gt;dplyr&lt;/code&gt; los comandos &lt;code&gt;starts_with(&#34;prefijo&#34;)&lt;/code&gt; permiten seleccionar las variables que inician con determinado patrón o &lt;code&gt;ends_with(&#34;sufijo&#34;)&lt;/code&gt; para las variables que finalizan con determinado patrón. Si buscamos resumir una gran cantidad de variables que comparten un prefijo o un sufijo, se pueden usar &lt;code&gt;summarise_at&lt;/code&gt; para afectar a un conjunto de variables o el comando &lt;code&gt;across&lt;/code&gt;&lt;/p&gt;
-&lt;div id=&#34;usando-summarise_at&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando &lt;code&gt;summarise_at&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;resumen-de-múltiples-variables&#34;&gt;Resumen de múltiples variables&lt;/h2&gt;
+&lt;p&gt;Cuando hablamos de depurar datos en R, también conocido como proceso de &lt;code&gt;data wrangling&lt;/code&gt;, uno de los paquetes más utilizados es &lt;code&gt;dplyr&lt;/code&gt;, incluido en el entorno &lt;code&gt;tidyverse&lt;/code&gt;.  Estos procesos suelen ser los que más demandan tiempo dentro del ciclo de la analítica de los datos, y de ello depende en gran medida la calidad de los datos.&lt;/p&gt;
+&lt;p&gt;Dentro de los verbos de &lt;code&gt;dplyr&lt;/code&gt; los comandos &lt;code&gt;starts_with(&amp;quot;prefijo&amp;quot;)&lt;/code&gt; permiten seleccionar las variables que inician con determinado patrón o &lt;code&gt;ends_with(&amp;quot;sufijo&amp;quot;)&lt;/code&gt; para las variables que finalizan con determinado patrón. Si buscamos resumir una gran cantidad de variables que comparten un prefijo o un sufijo, se pueden usar &lt;code&gt;summarise_at&lt;/code&gt; para afectar a un conjunto de variables o el comando &lt;code&gt;across&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;usando-summarise_at&#34;&gt;Usando &lt;code&gt;summarise_at&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;En este caso se creará el objeto &lt;code&gt;res1&lt;/code&gt; que contiene la información de la media y la desviación estándar para todas las variables que inician con el prefijo &lt;code&gt;v_20&lt;/code&gt;, resumidas por la variable grupo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(res1 &amp;lt;- datos |&amp;gt;  
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(res1 &amp;lt;- datos |&amp;gt;  
          group_by(grupo) |&amp;gt; 
          summarise_at(vars(starts_with(&amp;quot;v_20&amp;quot;)), 
                      list(media = ~mean(., na.rm = T), 
@@ -85,13 +82,12 @@
 ## # ℹ 9 more variables: v_2022_media &amp;lt;dbl&amp;gt;, v_2023_media &amp;lt;dbl&amp;gt;,
 ## #   v_2017_desv.est &amp;lt;dbl&amp;gt;, v_2018_desv.est &amp;lt;dbl&amp;gt;, v_2019_desv.est &amp;lt;dbl&amp;gt;,
 ## #   v_2020_desv.est &amp;lt;dbl&amp;gt;, v_2021_desv.est &amp;lt;dbl&amp;gt;, v_2022_desv.est &amp;lt;dbl&amp;gt;,
-## #   v_2023_desv.est &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;usando-across&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Usando &lt;code&gt;across&lt;/code&gt;&lt;/h3&gt;
+## #   v_2023_desv.est &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;usando-across&#34;&gt;Usando &lt;code&gt;across&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;A diferencia del caso anterior, cuando se usa la función &lt;code&gt;across&lt;/code&gt;, se realiza sobre el verbo general &lt;code&gt;summarise()&lt;/code&gt;, el primer argumento indicará cuáles son las variables que se van a afectar, que en este caso corresponde a las variables con prefijo &lt;code&gt;v_20&lt;/code&gt;, para las cuales se calcula la media y desviación estándar por grupo. Hacerlo de esta forma evita el uso de verbos como &lt;code&gt;summarise_all()&lt;/code&gt;, &lt;code&gt;summarise_at()&lt;/code&gt; o &lt;code&gt;summarise_if()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;En este caso, también se le asignó a cada variable de resumen un nombre con el argumento &lt;code&gt;.names = &#34;{fn}_del_{col}&#34;&lt;/code&gt; que toma como prefijo el nombre asignado a la función (media o desv.est), separa con una barra al piso, seguido por la palabla &lt;em&gt;del&lt;/em&gt; y finaliza con el nombre de la variable original.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(res2 &amp;lt;- datos |&amp;gt;  
+&lt;p&gt;En este caso, también se le asignó a cada variable de resumen un nombre con el argumento &lt;code&gt;.names = &amp;quot;{fn}_del_{col}&amp;quot;&lt;/code&gt; que toma como prefijo el nombre asignado a la función (media o desv.est), separa con una barra al piso, seguido por la palabla &lt;em&gt;del&lt;/em&gt; y finaliza con el nombre de la variable original.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(res2 &amp;lt;- datos |&amp;gt;  
          group_by(grupo) |&amp;gt; 
          summarise(across(starts_with(&amp;quot;v_20&amp;quot;), 
                    list(media = ~mean(., na.rm = T), 
@@ -107,14 +103,12 @@
 ## #   desv.est_del_v_2020 &amp;lt;dbl&amp;gt;, media_del_v_2021 &amp;lt;dbl&amp;gt;,
 ## #   desv.est_del_v_2021 &amp;lt;dbl&amp;gt;, media_del_v_2022 &amp;lt;dbl&amp;gt;,
 ## #   desv.est_del_v_2022 &amp;lt;dbl&amp;gt;, media_del_v_2023 &amp;lt;dbl&amp;gt;,
-## #   desv.est_del_v_2023 &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;reubicación-de-variables&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Reubicación de variables&lt;/h2&gt;
+## #   desv.est_del_v_2023 &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;reubicación-de-variables&#34;&gt;Reubicación de variables&lt;/h2&gt;
 &lt;p&gt;Es posible que quiera ordenar su conjunto de datos para dejar algunas variables al inicio o al final. Una posibilidad es usar el verbo &lt;code&gt;select()&lt;/code&gt; pero esto le implicaría indicar el orden de cada una de las variables, lo cual resulta tedioso. Una solución para este inconveniente es utilizar el verbo &lt;code&gt;relocate()&lt;/code&gt; listando las variables de interés y especificando un argumento &lt;code&gt;.before&lt;/code&gt; o &lt;code&gt;.after&lt;/code&gt; para indicar si las quiere antes o después de alguna variable específica.&lt;/p&gt;
 &lt;p&gt;En el siguiente ejemplo se toma el conjunto de datos &lt;code&gt;res2&lt;/code&gt; obtenido previamente y las variables se reordenan colocando todas las medias en un primer bloque (luego de la variable grupo), de manera que las desviaciones estándar quedarán en un siguiente bloque.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
 (res3 &amp;lt;- res2 |&amp;gt; 
          relocate(starts_with(&amp;quot;media&amp;quot;), .after = grupo))
 ## # A tibble: 2 × 15
@@ -126,12 +120,11 @@
 ## #   media_del_v_2023 &amp;lt;dbl&amp;gt;, desv.est_del_v_2017 &amp;lt;dbl&amp;gt;,
 ## #   desv.est_del_v_2018 &amp;lt;dbl&amp;gt;, desv.est_del_v_2019 &amp;lt;dbl&amp;gt;,
 ## #   desv.est_del_v_2020 &amp;lt;dbl&amp;gt;, desv.est_del_v_2021 &amp;lt;dbl&amp;gt;,
-## #   desv.est_del_v_2022 &amp;lt;dbl&amp;gt;, desv.est_del_v_2023 &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;resumen-de-estadísticas-por-filas&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Resumen de estadísticas por filas&lt;/h2&gt;
-&lt;p&gt;En ocasiones deseamos obtener un resumen de las estadísticas para un conjunto de variables, en el caso del conjunto de datos de ejemplo podríamos estar interesados en calcular la media o la desviación estándar para cada municipio. Una manera de hacerlo con el adverbio&lt;code&gt;c_across&lt;/code&gt; una vez se ha especificado que los cálculos serán por fila usando el verbo &lt;code&gt;rowwise()&lt;/code&gt;&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;datos |&amp;gt; 
+## #   desv.est_del_v_2022 &amp;lt;dbl&amp;gt;, desv.est_del_v_2023 &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;resumen-de-estadísticas-por-filas&#34;&gt;Resumen de estadísticas por filas&lt;/h2&gt;
+&lt;p&gt;En ocasiones deseamos obtener un resumen de las estadísticas para un conjunto de variables, en el caso del conjunto de datos de ejemplo podríamos estar interesados en calcular la media o la desviación estándar para cada municipio. Una manera de hacerlo es con el adverbio &lt;code&gt;c_across&lt;/code&gt;, especificando previamente que los cálculos se harán por fila, para esto usamos el verbo &lt;code&gt;rowwise()&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;datos |&amp;gt; 
   rowwise() |&amp;gt; 
   dplyr::mutate(media = mean(c_across(starts_with(&amp;quot;v_20&amp;quot;)), na.rm = T))
 ## # A tibble: 8 × 10
@@ -145,13 +138,12 @@
 ## 5     2 88001         15     13     17     20     25     26     28  20.6
 ## 6     2 63001         17     25     33     48     55     58     65  43  
 ## 7     2 50001         21     28     42     50     52     58     60  44.4
-## 8     2 23001         NA      4     NA     25     28     35     45  27.4&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;reestructurar-a-lo-largo&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Reestructurar a lo largo&lt;/h2&gt;
+## 8     2 23001         NA      4     NA     25     28     35     45  27.4
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;reestructurar-a-lo-largo&#34;&gt;Reestructurar a lo largo&lt;/h2&gt;
 &lt;p&gt;En ocasiones es útil dar una estructura larga al conjunto de datos, esto puede agilizar algunos procesos. En nuestro conjunto de datos cada municipio es una fila y los datos por año se encuentran en las columnas y posteriormente fue resumido con las estadísticas de la media y desviación estándar por grupo. Si nuestro propósito fuera generar una gráfica del comportamiento de cada grupo por año, esta estructura resultaría un poco compleja de manejar.&lt;/p&gt;
-&lt;p&gt;En el siguiente ejemplo se usa &lt;code&gt;pivot_longer()&lt;/code&gt; para pivotear la tabla y ponerla hacía lo largo. En los argumentos se le indica que la columna &lt;em&gt;grupo&lt;/em&gt; es la única que no se afectará (&lt;em&gt;cols = -grupo&lt;/em&gt;), en el argumento &lt;code&gt;names_to&lt;/code&gt; se le ha indicado que vamos a crear dos columnas a partir del nombre de las variables de los datos originales, estas se denominarán &lt;em&gt;estadistica&lt;/em&gt; y &lt;em&gt;anio&lt;/em&gt;; ahora es necesario indicarle el patrón que tiene los nombres de las variables con el fin de que los pueda separar, así que el comando &lt;code&gt;names_pattern = &#34;(.*)_del_v_(.*)&#34;&lt;/code&gt; les está indicando que el patrón debe ser: tomar todo lo que está antes de “&lt;em&gt;del_v&lt;/em&gt;” y lo conservará en la columna &lt;em&gt;estadistica&lt;/em&gt;, mientras que todo lo que esté posterior a ese patrón lo conservará en la columna &lt;em&gt;anio&lt;/em&gt;. Los valores correspondientes se almancenan en la columna &lt;em&gt;valor&lt;/em&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(reesL &amp;lt;- res2 |&amp;gt;  
+&lt;p&gt;En el siguiente ejemplo se usa &lt;code&gt;pivot_longer()&lt;/code&gt; para pivotear la tabla y ponerla hacía lo largo. En los argumentos se le indica que la columna &lt;em&gt;grupo&lt;/em&gt; es la única que no se afectará (&lt;em&gt;cols = -grupo&lt;/em&gt;), en el argumento &lt;code&gt;names_to&lt;/code&gt; se le ha indicado que vamos a crear dos columnas a partir del nombre de las variables de los datos originales, estas se denominarán &lt;em&gt;estadistica&lt;/em&gt; y &lt;em&gt;anio&lt;/em&gt;; ahora es necesario indicarle el patrón que tiene los nombres de las variables con el fin de que los pueda separar, así que el comando &lt;code&gt;names_pattern = &amp;quot;(.*)_del_v_(.*)&amp;quot;&lt;/code&gt; les está indicando que el patrón debe ser: tomar todo lo que está antes de &amp;ldquo;&lt;em&gt;del_v&lt;/em&gt;&amp;rdquo; y lo conservará en la columna &lt;em&gt;estadistica&lt;/em&gt;, mientras que todo lo que esté posterior a ese patrón lo conservará en la columna &lt;em&gt;anio&lt;/em&gt;. Los valores correspondientes se almancenan en la columna &lt;em&gt;valor&lt;/em&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(reesL &amp;lt;- res2 |&amp;gt;  
          pivot_longer(cols = -grupo, 
                names_to = c(&amp;quot;estadistica&amp;quot;, &amp;quot;anio&amp;quot;), 
                names_pattern = &amp;quot;(.*)_del_v_(.*)&amp;quot;, 
@@ -169,9 +161,10 @@
 ##  8     1 desv.est    2020   11.5
 ##  9     1 media       2021   53.2
 ## 10     1 desv.est    2021   13.5
-## # ℹ 18 more rows&lt;/code&gt;&lt;/pre&gt;
+## # ℹ 18 more rows
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Ahora sería relativamente rápido hacer un gráfico de las medias&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;p &amp;lt;- reesL |&amp;gt; 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;p &amp;lt;- reesL |&amp;gt; 
   filter(estadistica == &amp;quot;media&amp;quot;) |&amp;gt; 
   mutate(grupo = factor(grupo, levels = 1:2, labels=c(&amp;quot;Grupo 1&amp;quot;, &amp;quot;grupo 2&amp;quot;))) |&amp;gt; 
   ggplot(aes(x = anio, y = valor, group = grupo, color = grupo, shape = grupo)) +
@@ -181,13 +174,12 @@
   theme_bw() +
   theme(legend.position = &amp;quot;bottom&amp;quot;)
 
-p&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;statictendencia-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;reestructurar-a-lo-ancho&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Reestructurar a lo ancho&lt;/h2&gt;
+p
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;statictendencia-1.png&#34; width=&#34;672&#34; /&gt;
+&lt;h2 id=&#34;reestructurar-a-lo-ancho&#34;&gt;Reestructurar a lo ancho&lt;/h2&gt;
 &lt;p&gt;Es posible que la estructura anterio no sea de todo su agrado, y que prefiera tener una columna con la media y otra con la desviación estándar. Para ello, el conjunto se puede convertir a un formato ancho de la siguiente manera&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(reesA &amp;lt;- reesL |&amp;gt; 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(reesA &amp;lt;- reesL |&amp;gt; 
          pivot_wider(names_from = estadistica,
                      values_from = valor))
 ## # A tibble: 14 × 4
@@ -206,9 +198,10 @@ p&lt;/code&gt;&lt;/pre&gt;
 ## 11     2 2020   35.8    15.5 
 ## 12     2 2021   40      15.7 
 ## 13     2 2022   44.2    16.3 
-## 14     2 2023   49.5    16.7&lt;/code&gt;&lt;/pre&gt;
+## 14     2 2023   49.5    16.7
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Otro ejemplo puede ser revertir el conjunto de datos largo y llevarlo a la estructura inicial, que se puede realizar de la siguiente forma&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(reesA2 &amp;lt;- reesL |&amp;gt; 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(reesA2 &amp;lt;- reesL |&amp;gt; 
           pivot_wider(names_from = c(&amp;quot;estadistica&amp;quot;, &amp;quot;anio&amp;quot;),
                      values_from = valor))
 ## # A tibble: 2 × 15
@@ -219,8 +212,8 @@ p&lt;/code&gt;&lt;/pre&gt;
 ## # ℹ 9 more variables: desv.est_2019 &amp;lt;dbl&amp;gt;, media_2020 &amp;lt;dbl&amp;gt;,
 ## #   desv.est_2020 &amp;lt;dbl&amp;gt;, media_2021 &amp;lt;dbl&amp;gt;, desv.est_2021 &amp;lt;dbl&amp;gt;,
 ## #   media_2022 &amp;lt;dbl&amp;gt;, desv.est_2022 &amp;lt;dbl&amp;gt;, media_2023 &amp;lt;dbl&amp;gt;,
-## #   desv.est_2023 &amp;lt;dbl&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+## #   desv.est_2023 &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -229,30 +222,30 @@ p&lt;/code&gt;&lt;/pre&gt;
       <link>http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/</link>
       <pubDate>Tue, 14 Jul 2020 00:00:00 +0000</pubDate>
       <guid>http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/</guid>
-      <description>
-
-
-&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(ggplot2)
+      <description>&lt;p&gt;Cuando tenía la necesidad de graficar una función solía recurrir a programas como &lt;code&gt;MATLAB&lt;/code&gt; o simplemente simulaba algunos datos en &lt;code&gt;R&lt;/code&gt; y lo hacía de la siguiente manera:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
 
 df &amp;lt;- data.frame( x = rnorm(1000))
 
 g1 &amp;lt;- ggplot(df, aes(x)) +
   geom_density(aes(color = &amp;quot;estimada&amp;quot;), key_glyph = &amp;quot;path&amp;quot;) + theme_classic()
-g1&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/simula-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+g1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/simula-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Hace poco encontré que la versión &lt;code&gt;3.3.2&lt;/code&gt; del paquete &lt;code&gt;ggplot2&lt;/code&gt; permite graficar una función. El usuario puede ingresar la sintaxis de la fórmula o citar el nombre de alguna función de probabilidad conocida. Por ejemplo, en el caso anterior se agregaría la distribución teórica de la siguiente manera&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;g2 &amp;lt;- g1 +
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;g2 &amp;lt;- g1 +
       geom_function(aes(color = &amp;quot;teórica&amp;quot;), fun = dnorm)
-g2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+g2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Para dar otro ejemplo, considere una distribución chi-cuadrado con 5 grados de libertad, en este caso se establecen los valores para &lt;code&gt;x&lt;/code&gt; en el rango de 0 a 30. Adicionalmente, se debe agregar una tilde (&lt;code&gt;~&lt;/code&gt;) después del igual (&lt;code&gt;=&lt;/code&gt;) y la variable debe estar antecedida por un punto &lt;code&gt;.x&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot() +
   xlim(0, 30) +
-  geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+  geom_function(fun =~ dchisq(.x, df = 5)) + theme_classic()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Finalmente, usted puede escribir la sintaxis de cualquier función, si lo prefiere puede usar directamente la fdp, así:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot() +
    xlim(-3, 3) +
    geom_function(
      aes(color = &amp;quot;Normal&amp;quot;),
@@ -262,18 +255,20 @@ g2&lt;/code&gt;&lt;/pre&gt;
      aes(color = &amp;quot;Laplace&amp;quot;),
      fun =~ 1/2 * exp(-abs(.x))
    ) + theme_classic() +
-  ylab(&amp;quot;f(x)&amp;quot;) + theme(legend.title = element_blank())&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+  ylab(&amp;quot;f(x)&amp;quot;) + theme(legend.title = element_blank())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;
 &lt;p&gt;Por supuesto, puede usarlo en casos que no tienen que ver con probabilidad&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot() +
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot() +
   xlim(-10, 10) +
   geom_function(aes(color = &amp;quot;lineal&amp;quot;),
     fun =~ 3*.x + 1 
     ) +
   geom_function(aes(color = &amp;quot;cuadrática&amp;quot;),
     fun =~ 3*.x^2 + .x + 1             
-    ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-gráficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+    ) + ylab(&amp;quot;f(x)&amp;quot;) + theme_classic()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;http://jgbabativam.netlify.app/post/2020-07-14-graficas-de-funciones-con-ggplot2/index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;
 </description>
     </item>
     
